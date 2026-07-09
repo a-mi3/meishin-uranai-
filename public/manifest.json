@@ -1,0 +1,17 @@
+{
+  "name": "命心占い",
+  "short_name": "命心占い",
+  "description": "生年月日から導く五行と心理テストを掛け合わせた新ジャンルの占い",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e1033",
+  "theme_color": "#4c1d95",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
