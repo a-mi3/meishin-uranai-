@@ -7,11 +7,34 @@ export const TYPE_ORDER: PersonalityType[] = [
   "guardian",
 ];
 
-export const TYPE_INFO: Record<PersonalityType, { label: string; emoji: string }> = {
-  challenger: { label: "挑戦者", emoji: "🔥" },
-  seeker: { label: "探求者", emoji: "🔭" },
-  harmonizer: { label: "調和者", emoji: "🤝" },
-  guardian: { label: "守護者", emoji: "🛡️" },
+export const TYPE_INFO: Record<
+  PersonalityType,
+  { label: string; emoji: string; description: string }
+> = {
+  challenger: {
+    label: "挑戦者",
+    emoji: "🔥",
+    description:
+      "今のあなたは、じっとしているより動きながら答えを探したい気分。新しいことに飛び込むエネルギーに満ちている今だからこそ、迷ったときは考えるより先に一歩踏み出してみると、道が開けていくはずです。",
+  },
+  seeker: {
+    label: "探求者",
+    emoji: "🔭",
+    description:
+      "今のあなたは、目の前のことをじっくり掘り下げたい気分。表面的な情報だけでは物足りず、自分の目で確かめて納得したい今だからこそ、気になったことに時間をかけて向き合ってみると、思わぬ発見に出会えるはずです。",
+  },
+  harmonizer: {
+    label: "調和者",
+    emoji: "🤝",
+    description:
+      "今のあなたは、誰かと気持ちを分かち合いたい気分。一人で抱え込むよりも、周りの人と支え合うことで物事がうまく運びやすい今だからこそ、素直な一言を伝えてみると、思いがけない助けやつながりが生まれるはずです。",
+  },
+  guardian: {
+    label: "守護者",
+    emoji: "🛡️",
+    description:
+      "今のあなたは、自分のペースを大切に守りたい気分。急かされるよりも、落ち着いて足元を整えることで力を発揮できる今だからこそ、焦らず自分の内側の感覚を信じてみると、着実な一歩に繋がるはずです。",
+  },
 };
 
 export type Question = {
@@ -496,6 +519,34 @@ const ACTION_PLANS: Record<PersonalityType, (god: God, phase: Phase) => string> 
     `${god.name}が持つ${god.keyword}と、${phase.keyword}が重なる今は、無理に急がず、自分のペースを守ることが何より大切なタイミングです。周囲の勢いに流されそうになっても、一度立ち止まって「自分は今どうしたいか」を確かめてみてください。静かに整えた準備や積み重ねは、後になって確かな土台として効いてきます。焦らなくても、あなたのペースで進めたことの方が、結果的に長く続く力になるでしょう。人と比べず、自分の内側にある感覚を信じてあげてください。具体的には、部屋や身の回りを整理する、後回しにしていた小さなタスクを一つずつ片付ける、予定を詰め込みすぎずに一人の時間を意識的に確保するなど、静かな積み重ねを大切にしてみてください。ゆっくりでも着実に進んでいることに、もっと自信を持っていいはずです。また、この時期に見直した習慣や整えた環境は、しばらく先まで安定した土台として役立ち続けます。周囲から「もっと早く」「もっと大きく」と急かされる場面があっても、無理に合わせる必要はありません。あなたにとって心地よいペースこそが、長く続けられる一番の近道です。静かな時間の中で見えてきた気づきは、焦らずメモや言葉として残しておくと、後から振り返ったときに大きな支えになるでしょう。周囲から「もっと早く動いた方がいい」と急かされることがあっても、あなたにとって大切なのは着実さです。急いで積み上げたものより、じっくり時間をかけたものの方が、結果的にずっと長く持ちこたえてくれるでしょう。焦りを感じたときほど、深呼吸をして自分のペースを取り戻してください。急かされても自分のペースを守ることが、結果的に一番の近道になるタイミングです。`,
 };
 
+const LOVE_MODE_ADDENDUM: Record<PersonalityType, string> = {
+  challenger: "今は特に、気持ちを溜め込まずまっすぐ伝えることで恋が動き出しやすいタイミングです。",
+  seeker: "今は特に、相手をじっくり知ろうとする過程そのものを楽しめると、恋がより深まっていくタイミングです。",
+  harmonizer: "今は特に、相手を気遣う気持ちが伝わりやすく、絆が深まりやすいタイミングです。",
+  guardian: "今は特に、焦らず自分のペースで関係を育てることで、安心できる恋につながりやすいタイミングです。",
+};
+
+const WORK_MODE_ADDENDUM: Record<PersonalityType, string> = {
+  challenger: "今は特に、新しい提案や挑戦が通りやすく、行動した分だけ結果につながりやすいタイミングです。",
+  seeker: "今は特に、調べ物やリサーチが力を発揮しやすく、じっくり向き合った分だけ評価につながりやすいタイミングです。",
+  harmonizer: "今は特に、周囲との連携がスムーズに進みやすく、チームプレーが評価されやすいタイミングです。",
+  guardian: "今は特に、地道な積み重ねが信頼につながりやすく、着実さが評価されやすいタイミングです。",
+};
+
+const MODE_STRENGTH: Record<PersonalityType, string> = {
+  challenger: "今は特に行動力が高まっている",
+  seeker: "今は特に観察力・探究心が高まっている",
+  harmonizer: "今は特に周囲への気配りが高まっている",
+  guardian: "今は特に粘り強さ・安定感が高まっている",
+};
+
+const MODE_WEAKNESS: Record<PersonalityType, string> = {
+  challenger: "今は特に勢い任せで見切り発車しやすい",
+  seeker: "今は特に考えすぎて動き出しが遅れやすい",
+  harmonizer: "今は特に自分のことを後回しにしやすい",
+  guardian: "今は特に変化への一歩が重くなりやすい",
+};
+
 export type AdviceSection = {
   title: string;
   body: string;
@@ -524,10 +575,16 @@ export function buildFortuneResult(
 ): FortuneResult {
   const { god, phase } = getGodAndPhase(dateStr);
 
+  const modeInfo = TYPE_INFO[personalityType];
+
   const adviceSections: AdviceSection[] = [
     {
       title: "🌙 今のあなたについて",
       body: `${god.personality} ${god.deepDive}`,
+    },
+    {
+      title: `${modeInfo.emoji} 今のあなたのモード:${modeInfo.label}`,
+      body: modeInfo.description,
     },
     {
       title: "⏳ 今という時期",
@@ -553,10 +610,10 @@ export function buildFortuneResult(
     emoji: god.emoji,
     image: god.image,
     essence: `${god.personality} ${phase.description}`,
-    strengths: god.strengths,
-    weaknesses: god.weaknesses,
-    loveStyle: god.loveStyle,
-    workStyle: god.workStyle,
+    strengths: [...god.strengths, MODE_STRENGTH[personalityType]],
+    weaknesses: [...god.weaknesses, MODE_WEAKNESS[personalityType]],
+    loveStyle: `${god.loveStyle} ${LOVE_MODE_ADDENDUM[personalityType]}`,
+    workStyle: `${god.workStyle} ${WORK_MODE_ADDENDUM[personalityType]}`,
     compatibleWith: god.compatibleWith,
     luckyColor: god.luckyColor,
     luckyItem: god.luckyItem,

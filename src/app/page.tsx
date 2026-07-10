@@ -11,14 +11,41 @@ import {
 
 type Stage = "intro" | "quiz" | "result";
 
+const CURRENT_YEAR = new Date().getFullYear();
+const YEAR_OPTIONS = Array.from({ length: 100 }, (_, i) => CURRENT_YEAR - i);
+const MONTH_OPTIONS = Array.from({ length: 12 }, (_, i) => i + 1);
+
+function daysInMonth(year: number, month: number): number {
+  return new Date(year, month, 0).getDate();
+}
+
 export default function Home() {
   const [stage, setStage] = useState<Stage>("intro");
-  const [birthDate, setBirthDate] = useState("");
+  const [birthYear, setBirthYear] = useState("");
+  const [birthMonth, setBirthMonth] = useState("");
+  const [birthDay, setBirthDay] = useState("");
   const [dateError, setDateError] = useState("");
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<PersonalityType[]>([]);
   const [shared, setShared] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
+
+  const dayOptions = useMemo(() => {
+    const year = Number(birthYear) || CURRENT_YEAR;
+    const month = Number(birthMonth) || 1;
+    return Array.from({ length: daysInMonth(year, month) }, (_, i) => i + 1);
+  }, [birthYear, birthMonth]);
+
+  useEffect(() => {
+    if (birthDay && Number(birthDay) > dayOptions.length) {
+      setBirthDay("");
+    }
+  }, [dayOptions, birthDay]);
+
+  const birthDate = useMemo(() => {
+    if (!birthYear || !birthMonth || !birthDay) return "";
+    return `${birthYear}-${birthMonth.padStart(2, "0")}-${birthDay.padStart(2, "0")}`;
+  }, [birthYear, birthMonth, birthDay]);
 
   const startQuiz = () => {
     if (!birthDate) {
@@ -50,7 +77,9 @@ export default function Home() {
 
   const reset = () => {
     setStage("intro");
-    setBirthDate("");
+    setBirthYear("");
+    setBirthMonth("");
+    setBirthDay("");
     setStep(0);
     setAnswers([]);
     setShared(false);
@@ -113,13 +142,44 @@ export default function Home() {
             <p className="text-xs text-gray-400 mb-5">
               生まれた日から、あなたに宿る「守護神」を導きます
             </p>
-            <input
-              type="date"
-              value={birthDate}
-              onChange={(e) => setBirthDate(e.target.value)}
-              max={new Date().toISOString().split("T")[0]}
-              className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#6d28d9] focus:outline-none text-gray-700 mb-2"
-            />
+            <div className="grid grid-cols-3 gap-2 mb-2">
+              <select
+                value={birthYear}
+                onChange={(e) => setBirthYear(e.target.value)}
+                className="w-full px-2 py-3 rounded-xl border-2 border-gray-200 focus:border-[#6d28d9] focus:outline-none text-gray-700 text-sm"
+              >
+                <option value="">年</option>
+                {YEAR_OPTIONS.map((y) => (
+                  <option key={y} value={y}>
+                    {y}年
+                  </option>
+                ))}
+              </select>
+              <select
+                value={birthMonth}
+                onChange={(e) => setBirthMonth(e.target.value)}
+                className="w-full px-2 py-3 rounded-xl border-2 border-gray-200 focus:border-[#6d28d9] focus:outline-none text-gray-700 text-sm"
+              >
+                <option value="">月</option>
+                {MONTH_OPTIONS.map((m) => (
+                  <option key={m} value={m}>
+                    {m}月
+                  </option>
+                ))}
+              </select>
+              <select
+                value={birthDay}
+                onChange={(e) => setBirthDay(e.target.value)}
+                className="w-full px-2 py-3 rounded-xl border-2 border-gray-200 focus:border-[#6d28d9] focus:outline-none text-gray-700 text-sm"
+              >
+                <option value="">日</option>
+                {dayOptions.map((d) => (
+                  <option key={d} value={d}>
+                    {d}日
+                  </option>
+                ))}
+              </select>
+            </div>
             {dateError && (
               <p className="text-red-500 text-xs mb-2">{dateError}</p>
             )}
@@ -198,7 +258,7 @@ export default function Home() {
                     src={result.image}
                     alt={result.title}
                     onError={() => setImageFailed(true)}
-                    className="w-40 h-60 object-cover object-top rounded-xl mx-auto mb-3 shadow-lg ring-2 ring-white/30"
+                    className="w-56 h-[336px] object-cover object-top rounded-xl mx-auto mb-3 shadow-lg ring-2 ring-white/30"
                   />
                 )}
                 <h2 className="text-2xl font-bold text-white mb-1">
