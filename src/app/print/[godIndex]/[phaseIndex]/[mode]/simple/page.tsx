@@ -1,9 +1,9 @@
 "use client";
 
 import { usePrintResult } from "@/lib/usePrintResult";
-import ResultCard from "@/components/ResultCard";
+import SimpleResultCard from "@/components/SimpleResultCard";
 
-export default function PrintResultPage() {
+export default function PrintSimpleResultPage() {
   const state = usePrintResult();
 
   if (!state.isValid) {
@@ -11,8 +11,8 @@ export default function PrintResultPage() {
   }
 
   return (
-    <div className="bg-white px-6 py-8 max-w-xl mx-auto">
-      <ResultCard
+    <div className="bg-white px-6 py-6 max-w-xl mx-auto">
+      <SimpleResultCard
         result={state.result}
         typeInfo={state.typeInfo}
         imageFailed={state.imageFailed}

@@ -1,5 +1,7 @@
-// Batch-exports every god x phase x mode combination from /print/[godIndex]/[phaseIndex]/[mode]
-// as an A4 PDF, for producing physical print goods.
+// Batch-exports every god x phase x mode combination as A4 PDFs, for producing physical print goods.
+// Generates two variants per combination:
+//   - simple/  : single-page condensed card (product itself)
+//   - detail/  : full multi-page result (insert / detailed reading)
 //
 // Prerequisite: the app must already be running (e.g. `npm run dev` or `npm run build && npm start`).
 // Usage: PRINT_BASE_URL=http://localhost:3000 node scripts/generate-print-pdfs.mjs
@@ -13,40 +15,55 @@ const BASE_URL = process.env.PRINT_BASE_URL || "http://localhost:3000";
 const GOD_COUNT = 12;
 const PHASE_COUNT = 5;
 const MODES = ["challenger", "seeker", "harmonizer", "guardian"];
+const VARIANTS = [
+  { key: "simple", pathSuffix: "/simple" },
+  { key: "detail", pathSuffix: "" },
+];
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const OUT_DIR = path.join(__dirname, "..", "print-exports");
+const OUT_ROOT = path.join(__dirname, "..", "print-exports");
 
 async function main() {
-  fs.mkdirSync(OUT_DIR, { recursive: true });
-
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
   const manifest = [];
-  const total = GOD_COUNT * PHASE_COUNT * MODES.length;
+  const total = GOD_COUNT * PHASE_COUNT * MODES.length * VARIANTS.length;
   let count = 0;
 
-  for (let godIndex = 0; godIndex < GOD_COUNT; godIndex++) {
-    for (let phaseIndex = 0; phaseIndex < PHASE_COUNT; phaseIndex++) {
-      for (const mode of MODES) {
-        const url = `${BASE_URL}/print/${godIndex}/${phaseIndex}/${mode}`;
-        await page.goto(url, { waitUntil: "networkidle" });
+  for (const variant of VARIANTS) {
+    const outDir = path.join(OUT_ROOT, variant.key);
+    fs.mkdirSync(outDir, { recursive: true });
 
-        const title = await page.locator("h2").first().textContent();
-        const reading = await page.locator("p.text-white\\/60").first().textContent();
+    for (let godIndex = 0; godIndex < GOD_COUNT; godIndex++) {
+      for (let phaseIndex = 0; phaseIndex < PHASE_COUNT; phaseIndex++) {
+        for (const mode of MODES) {
+          const url = `${BASE_URL}/print/${godIndex}/${phaseIndex}/${mode}${variant.pathSuffix}`;
+          await page.goto(url, { waitUntil: "networkidle" });
 
-        const fileName = `god${String(godIndex).padStart(2, "0")}_phase${phaseIndex}_${mode}.pdf`;
-        await page.pdf({
-          path: path.join(OUT_DIR, fileName),
-          format: "A4",
-          printBackground: true,
-          margin: { top: "10mm", bottom: "10mm", left: "10mm", right: "10mm" },
-        });
+          const title = await page.locator("h2").first().textContent();
+          const reading = await page.locator("p.text-white\\/60").first().textContent();
 
-        manifest.push({ fileName, godIndex, phaseIndex, mode, title, reading });
-        count++;
-        console.log(`[${count}/${total}] ${fileName} — ${title}`);
+          const fileName = `god${String(godIndex).padStart(2, "0")}_phase${phaseIndex}_${mode}.pdf`;
+          await page.pdf({
+            path: path.join(outDir, fileName),
+            format: "A4",
+            printBackground: true,
+            margin: { top: "10mm", bottom: "10mm", left: "10mm", right: "10mm" },
+          });
+
+          manifest.push({
+            variant: variant.key,
+            fileName: path.join(variant.key, fileName),
+            godIndex,
+            phaseIndex,
+            mode,
+            title,
+            reading,
+          });
+          count++;
+          console.log(`[${count}/${total}] ${variant.key}/${fileName} — ${title}`);
+        }
       }
     }
   }
@@ -54,12 +71,12 @@ async function main() {
   await browser.close();
 
   fs.writeFileSync(
-    path.join(OUT_DIR, "manifest.json"),
+    path.join(OUT_ROOT, "manifest.json"),
     JSON.stringify(manifest, null, 2),
     "utf-8"
   );
 
-  console.log(`\nDone. Generated ${count} PDFs in ${OUT_DIR}`);
+  console.log(`\nDone. Generated ${count} PDFs in ${OUT_ROOT}`);
 }
 
 main().catch((err) => {
