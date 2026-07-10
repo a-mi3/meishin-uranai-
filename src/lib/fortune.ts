@@ -573,7 +573,17 @@ export function buildFortuneResult(
   dateStr: string,
   personalityType: PersonalityType
 ): FortuneResult {
-  const { god, phase } = getGodAndPhase(dateStr);
+  const { godIndex, phaseIndex } = getGodAndPhase(dateStr);
+  return buildFortuneResultFromIndices(godIndex, phaseIndex, personalityType);
+}
+
+export function buildFortuneResultFromIndices(
+  godIndex: number,
+  phaseIndex: number,
+  personalityType: PersonalityType
+): FortuneResult {
+  const god = GODS[godIndex];
+  const phase = PHASES[phaseIndex];
 
   const modeInfo = TYPE_INFO[personalityType];
 

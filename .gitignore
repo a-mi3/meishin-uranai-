@@ -41,3 +41,6 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# batch-generated print PDFs (large binary output, not source)
+/print-exports
