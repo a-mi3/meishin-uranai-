@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "命心占い | 生年月日×性格でわかる新感覚占い",
+  title: "守護女神占い | 生年月日×性格でわかる新感覚占い",
   description:
-    "生年月日から導く五行と、心理テストでわかる性格タイプを掛け合わせた新ジャンルの占い「命心占い」。",
+    "生年月日から導く60の守護女神と、心理テストでわかる性格タイプを掛け合わせた新ジャンルの占い「守護女神占い」。",
   manifest: "/manifest.json",
 };
 

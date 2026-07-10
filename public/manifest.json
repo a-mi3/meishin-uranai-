@@ -1,6 +1,6 @@
 {
-  "name": "命心占い",
-  "short_name": "命心占い",
+  "name": "守護女神占い",
+  "short_name": "守護女神占い",
   "description": "生年月日から導く五行と心理テストを掛け合わせた新ジャンルの占い",
   "start_url": "/",
   "display": "standalone",

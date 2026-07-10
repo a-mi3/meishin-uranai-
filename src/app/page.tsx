@@ -101,10 +101,10 @@ export default function Home() {
 
   const shareResult = async () => {
     if (!result || !typeInfo) return;
-    const text = `【命心占い】\n私は「${result.emoji}${result.title}」タイプでした!\n(気分のモード:${typeInfo.emoji}${typeInfo.label})\n\n${result.essence}`;
+    const text = `【守護女神占い】\n私は「${result.emoji}${result.title}」タイプでした!\n(気分のモード:${typeInfo.emoji}${typeInfo.label})\n\n${result.essence}`;
     if (navigator.share) {
       try {
-        await navigator.share({ title: "命心占い", text });
+        await navigator.share({ title: "守護女神占い", text });
       } catch {
         // user cancelled
       }
@@ -128,7 +128,7 @@ export default function Home() {
           <p className="text-purple-200 text-xs tracking-widest mb-2">
             60の守護神 × 心理テスト
           </p>
-          <h1 className="text-3xl font-bold text-white mb-2">命心占い</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">守護女神占い</h1>
           <p className="text-purple-200 text-sm">
             生年月日から導く「60の守護神」と、心理テストでわかる「今のあなたのモード」を掛け合わせた新ジャンルの占い
           </p>
@@ -394,7 +394,7 @@ export default function Home() {
         )}
 
         <footer className="text-center mt-12 text-xs text-purple-200/70">
-          <p>命心占い — エンタメを目的とした簡易占いです。結果は参考程度にお楽しみください</p>
+          <p>守護女神占い — エンタメを目的とした簡易占いです。結果は参考程度にお楽しみください</p>
         </footer>
       </div>
     </div>
