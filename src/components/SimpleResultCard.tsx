@@ -22,7 +22,7 @@ export default function SimpleResultCard({
   return (
     <div className="bg-white">
       <div
-        className="rounded-2xl px-6 py-6 text-center mb-3"
+        className="rounded-2xl px-6 py-4 text-center mb-2"
         style={{ background: "linear-gradient(135deg, #6d28d9dd, #3b1d63dd)" }}
       >
         <p className="text-white/80 text-xs mb-1">あなたを守る神様は…</p>
@@ -34,7 +34,7 @@ export default function SimpleResultCard({
             src={result.image}
             alt={result.title}
             onError={onImageError}
-            className="w-40 h-60 object-cover object-top rounded-xl mx-auto mb-2 shadow-lg ring-2 ring-white/30"
+            className="w-36 h-[216px] object-cover object-top rounded-xl mx-auto mb-2 shadow-lg ring-2 ring-white/30"
           />
         )}
         <h2 className="text-xl font-bold text-white mb-1">{result.title}</h2>
@@ -45,12 +45,12 @@ export default function SimpleResultCard({
         </div>
       </div>
 
-      <div className="border-2 rounded-xl px-5 py-3 mb-3" style={{ borderColor: BORDER_COLOR }}>
+      <div className="border-2 rounded-xl px-5 py-3 mb-2" style={{ borderColor: BORDER_COLOR }}>
         <h3 className="text-xs font-bold text-gray-800 mb-1">🌟 本質</h3>
         <p className="text-[11px] text-gray-600 leading-snug">{result.essence}</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 mb-3">
+      <div className="grid grid-cols-2 gap-3 mb-2">
         <div className="border-2 rounded-xl px-4 py-3" style={{ borderColor: BORDER_COLOR }}>
           <h3 className="text-xs font-bold text-gray-800 mb-1">💪 強み</h3>
           <ul className="space-y-0.5">
@@ -73,7 +73,7 @@ export default function SimpleResultCard({
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 mb-3">
+      <div className="grid grid-cols-2 gap-3 mb-2">
         <div className="border-2 rounded-xl px-4 py-3" style={{ borderColor: BORDER_COLOR }}>
           <h3 className="text-xs font-bold text-gray-800 mb-1">💕 恋愛傾向</h3>
           <p className="text-[11px] text-gray-600 leading-snug">{result.loveStyle}</p>
@@ -84,7 +84,7 @@ export default function SimpleResultCard({
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-3 mb-3 text-center">
+      <div className="grid grid-cols-3 gap-3 mb-2 text-center">
         <div className="border-2 rounded-xl px-3 py-3" style={{ borderColor: BORDER_COLOR }}>
           <h3 className="text-xs font-bold text-gray-800 mb-1">🤝 相性</h3>
           <p className="text-[11px] text-gray-600">{result.compatibleWith}</p>
