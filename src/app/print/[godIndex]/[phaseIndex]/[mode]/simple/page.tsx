@@ -1,28 +1,25 @@
-"use client";
+import { resolvePrintResult, allPrintParams } from "@/lib/resolvePrintResult";
+import PrintSimpleResultClient from "@/components/PrintSimpleResultClient";
 
-import { usePrintResult } from "@/lib/usePrintResult";
-import SimpleResultCard from "@/components/SimpleResultCard";
-import PrintFrame from "@/components/PrintFrame";
+export function generateStaticParams() {
+  return allPrintParams();
+}
 
-export default function PrintSimpleResultPage() {
-  const state = usePrintResult();
+export const dynamicParams = false;
 
-  if (!state.isValid) {
+export default async function PrintSimpleResultPage({
+  params,
+}: {
+  params: Promise<{ godIndex: string; phaseIndex: string; mode: string }>;
+}) {
+  const { godIndex, phaseIndex, mode } = await params;
+  const data = resolvePrintResult(godIndex, phaseIndex, mode);
+
+  if (!data.isValid) {
     return <p className="p-10 text-center text-red-600">無効なパラメータです</p>;
   }
 
   return (
-    <div className="print-bg-pattern px-5 py-5">
-      <PrintFrame>
-        <div className="bg-white px-6 py-2 max-w-xl mx-auto">
-          <SimpleResultCard
-            result={state.result}
-            typeInfo={state.typeInfo}
-            imageFailed={state.imageFailed}
-            onImageError={() => state.setImageFailed(true)}
-          />
-        </div>
-      </PrintFrame>
-    </div>
+    <PrintSimpleResultClient result={data.result} typeInfo={data.typeInfo} />
   );
 }

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "serve -l 3000 out",
     "lint": "eslint",
     "generate:print": "node scripts/generate-print-pdfs.mjs"
   },
@@ -22,6 +22,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
     "playwright": "^1.61.1",
+    "serve": "^14.2.6",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

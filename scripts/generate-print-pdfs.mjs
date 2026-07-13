@@ -3,7 +3,8 @@
 //   - simple/  : single-page condensed card (product itself)
 //   - detail/  : full multi-page result (insert / detailed reading)
 //
-// Prerequisite: the app must already be running (e.g. `npm run dev` or `npm run build && npm start`).
+// Prerequisite: the app must already be running — either `npm run dev`, or
+// `npm run build` followed by serving the static `out/` folder (e.g. `npx serve out`).
 // Usage: PRINT_BASE_URL=http://localhost:3000 node scripts/generate-print-pdfs.mjs
 
 import { chromium } from "playwright";
