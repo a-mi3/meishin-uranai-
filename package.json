@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:xserver": "cross-env NEXT_PUBLIC_BASE_PATH=/app next build",
     "start": "serve -l 3000 out",
     "lint": "eslint",
     "generate:print": "node scripts/generate-print-pdfs.mjs"
@@ -19,6 +20,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
     "playwright": "^1.61.1",
