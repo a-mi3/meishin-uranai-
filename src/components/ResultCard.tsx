@@ -52,93 +52,99 @@ export default function ResultCard({
         </div>
       </div>
 
-      <div className="grid gap-4">
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-sm font-bold text-gray-800 mb-3 flex items-center gap-2">
-            💪 強み
-          </h3>
-          <ul className="space-y-1.5">
-            {result.strengths.map((s, i) => (
-              <li key={i} className="text-sm text-gray-600 flex gap-2">
-                <span style={{ color: "#6d28d9" }}>・</span>
-                {s}
-              </li>
-            ))}
-          </ul>
+      {/* ページ2：プロフィール要約 */}
+      <div className="print-page-break bg-white rounded-2xl shadow-lg p-7">
+        <h3 className="text-base font-bold mb-4" style={{ color: "#6d28d9" }}>
+          📋 プロフィール
+        </h3>
+        <div className="grid grid-cols-2 gap-4 mb-4">
+          <div>
+            <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
+              💪 強み
+            </h4>
+            <ul className="space-y-1.5">
+              {result.strengths.map((s, i) => (
+                <li key={i} className="text-sm text-gray-600 flex gap-2">
+                  <span style={{ color: "#6d28d9" }}>・</span>
+                  {s}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
+              ⚠️ 注意点
+            </h4>
+            <ul className="space-y-1.5">
+              {result.weaknesses.map((w, i) => (
+                <li key={i} className="text-sm text-gray-600 flex gap-2">
+                  <span style={{ color: "#6d28d9" }}>・</span>
+                  {w}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-sm font-bold text-gray-800 mb-3 flex items-center gap-2">
-            ⚠️ 注意点
-          </h3>
-          <ul className="space-y-1.5">
-            {result.weaknesses.map((w, i) => (
-              <li key={i} className="text-sm text-gray-600 flex gap-2">
-                <span style={{ color: "#6d28d9" }}>・</span>
-                {w}
-              </li>
-            ))}
-          </ul>
+        <div className="grid grid-cols-2 gap-4 mb-4">
+          <div>
+            <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
+              💕 恋愛傾向
+            </h4>
+            <p className="text-sm text-gray-600 leading-relaxed">{result.loveStyle}</p>
+          </div>
+          <div>
+            <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
+              💼 仕事スタイル
+            </h4>
+            <p className="text-sm text-gray-600 leading-relaxed">{result.workStyle}</p>
+          </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
-            💕 恋愛傾向
-          </h3>
-          <p className="text-sm text-gray-600 leading-relaxed">{result.loveStyle}</p>
-        </div>
-
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
-            💼 仕事スタイル
-          </h3>
-          <p className="text-sm text-gray-600 leading-relaxed">{result.workStyle}</p>
-        </div>
-
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
-            🤝 相性の良い神様
-          </h3>
-          <p className="text-sm text-gray-600">{result.compatibleWith}</p>
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h3 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
+        <div className="grid grid-cols-3 gap-4 mb-4">
+          <div>
+            <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
+              🤝 相性
+            </h4>
+            <p className="text-sm text-gray-600">{result.compatibleWith}</p>
+          </div>
+          <div>
+            <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
               🍀 アイテム
-            </h3>
+            </h4>
             <p className="text-sm text-gray-600">{result.luckyItem}</p>
           </div>
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h3 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
+          <div>
+            <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
               🎨 カラー
-            </h3>
+            </h4>
             <p className="text-sm text-gray-600">{result.luckyColor}</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
+        <div className="rounded-xl p-4" style={{ backgroundColor: "#f5f0ff" }}>
+          <h4 className="text-sm font-bold mb-1.5 flex items-center gap-2" style={{ color: "#6d28d9" }}>
             ⏳ 今の過ごし方のヒント
-          </h3>
-          <p className="text-sm text-gray-600 leading-relaxed">{result.luckyAction}</p>
+          </h4>
+          <p className="text-sm text-gray-700 leading-relaxed">{result.luckyAction}</p>
         </div>
+      </div>
 
-        <div
-          className="rounded-2xl shadow-lg p-6 sm:p-7 border-2"
-          style={{ borderColor: "#6d28d9", backgroundColor: "#f5f0ff" }}
-        >
-          <h3 className="text-base font-bold mb-4" style={{ color: "#6d28d9" }}>
-            💬 あなたへの詳しいアドバイス
-          </h3>
-          <div className="space-y-5">
-            {result.adviceSections.map((section) => (
-              <div key={section.title}>
-                <h4 className="text-sm font-bold text-gray-800 mb-1.5">{section.title}</h4>
-                <p className="text-sm text-gray-700 leading-relaxed">{section.body}</p>
-              </div>
-            ))}
-          </div>
+      {/* ページ3〜：詳しいアドバイス */}
+      <div
+        className="print-page-break rounded-2xl shadow-lg p-6 sm:p-7 border-2"
+        style={{ borderColor: "#6d28d9", backgroundColor: "#f5f0ff" }}
+      >
+        <h3 className="text-base font-bold mb-4" style={{ color: "#6d28d9" }}>
+          💬 あなたへの詳しいアドバイス
+        </h3>
+        <div className="space-y-5">
+          {result.adviceSections.map((section) => (
+            <div key={section.title}>
+              <h4 className="text-sm font-bold text-gray-800 mb-1.5">{section.title}</h4>
+              <p className="text-sm text-gray-700 leading-relaxed">{section.body}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
