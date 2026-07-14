@@ -12,12 +12,29 @@ type ResultCardProps = {
   onImageError: () => void;
 };
 
+function Banner({ src }: { src: string | undefined }) {
+  if (!src) return null;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={withBasePath(src)}
+      alt=""
+      className="w-full aspect-video object-cover rounded-xl mb-4 shadow"
+    />
+  );
+}
+
 export default function ResultCard({
   result,
   typeInfo,
   imageFailed,
   onImageError,
 }: ResultCardProps) {
+  const illustrations = result.illustrations ?? [];
+  const [today, tone] = result.adviceSections;
+  const [period, relationship] = result.adviceSections.slice(2, 4);
+  const [actionPlan, closing] = result.adviceSections.slice(4, 6);
+
   return (
     <div className="print-page">
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-5">
@@ -52,12 +69,13 @@ export default function ResultCard({
         </div>
       </div>
 
-      {/* ページ2：プロフィール要約 */}
+      {/* ページ2：プロフィールA(強み・注意点) */}
       <div className="print-page-break bg-white rounded-2xl shadow-lg p-7">
+        <Banner src={illustrations[0]} />
         <h3 className="text-base font-bold mb-4" style={{ color: "#6d28d9" }}>
           📋 プロフィール
         </h3>
-        <div className="grid grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-2 gap-4">
           <div>
             <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
               💪 強み
@@ -85,7 +103,11 @@ export default function ResultCard({
             </ul>
           </div>
         </div>
+      </div>
 
+      {/* ページ3：プロフィールB(恋愛・仕事・相性・アイテム・カラー・ヒント) */}
+      <div className="print-page-break bg-white rounded-2xl shadow-lg p-7">
+        <Banner src={illustrations[1]} />
         <div className="grid grid-cols-2 gap-4 mb-4">
           <div>
             <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
@@ -130,21 +152,51 @@ export default function ResultCard({
         </div>
       </div>
 
-      {/* ページ3〜：詳しいアドバイス */}
+      {/* ページ4：アドバイス1(今のあなたについて・モード) */}
       <div
         className="print-page-break rounded-2xl shadow-lg p-6 sm:p-7 border-2"
         style={{ borderColor: "#6d28d9", backgroundColor: "#f5f0ff" }}
       >
+        <Banner src={illustrations[2]} />
         <h3 className="text-base font-bold mb-4" style={{ color: "#6d28d9" }}>
           💬 あなたへの詳しいアドバイス
         </h3>
         <div className="space-y-5">
-          {result.adviceSections.map((section) => (
-            <div key={section.title}>
-              <h4 className="text-sm font-bold text-gray-800 mb-1.5">{section.title}</h4>
-              <p className="text-sm text-gray-700 leading-relaxed">{section.body}</p>
-            </div>
-          ))}
+          <div>
+            <h4 className="text-sm font-bold text-gray-800 mb-1.5">{today.title}</h4>
+            <p className="text-sm text-gray-700 leading-relaxed">{today.body}</p>
+          </div>
+          <div>
+            <h4 className="text-sm font-bold text-gray-800 mb-1.5">{tone.title}</h4>
+            <p className="text-sm text-gray-700 leading-relaxed">{tone.body}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* ページ5〜：アドバイス2+3(今という時期〜最後に、区切らず自然に流す) */}
+      <div
+        className="print-page-break rounded-2xl shadow-lg p-6 sm:p-7 border-2"
+        style={{ borderColor: "#6d28d9", backgroundColor: "#f5f0ff" }}
+      >
+        <Banner src={illustrations[3]} />
+        <div className="space-y-5">
+          <div>
+            <h4 className="text-sm font-bold text-gray-800 mb-1.5">{period.title}</h4>
+            <p className="text-sm text-gray-700 leading-relaxed">{period.body}</p>
+          </div>
+          <div>
+            <h4 className="text-sm font-bold text-gray-800 mb-1.5">{relationship.title}</h4>
+            <p className="text-sm text-gray-700 leading-relaxed">{relationship.body}</p>
+          </div>
+          <Banner src={illustrations[4]} />
+          <div>
+            <h4 className="text-sm font-bold text-gray-800 mb-1.5">{actionPlan.title}</h4>
+            <p className="text-sm text-gray-700 leading-relaxed">{actionPlan.body}</p>
+          </div>
+          <div>
+            <h4 className="text-sm font-bold text-gray-800 mb-1.5">{closing.title}</h4>
+            <p className="text-sm text-gray-700 leading-relaxed">{closing.body}</p>
+          </div>
         </div>
       </div>
     </div>

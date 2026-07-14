@@ -159,6 +159,10 @@ export type God = {
   luckyItem: string;
   imagePrompt: string;
   image: string;
+  // 印刷用ページの各セクションに添える横長バナー(1376x768目安)。
+  // [プロフィールA, プロフィールB, アドバイス1, アドバイス2, アドバイス3]の順。
+  // 未整備の神様はundefinedのままでよい(該当ページは画像なしで表示される)。
+  illustrations?: string[];
 };
 
 export type Phase = {
@@ -192,6 +196,13 @@ export const GODS: God[] = [
     image: "/gods/gyoutenshin.png",
     imagePrompt:
       "full-body shot, entire body visible from head to toe, wide shot, A youthful Japanese dawn goddess, beautiful young woman, Goddess of Awakening Dawn, standing full-length at the edge of a cliff facing the sunrise, dynamic forward-leaning pose, flowing orange and gold hakama robes, long hair blown by wind, holding a small brass pocket watch, sunrise light rays, warm orange and gold color palette, Japanese fantasy goddess portrait, elegant flowing robes with intricate patterns, mystical atmosphere, soft cinematic lighting, delicate linework, digital painting, highly detailed, trending on artstation --ar 2:3 --niji 6",
+    illustrations: [
+      "/gods/illustrations/gyoutenshin-01-profile-a.png",
+      "/gods/illustrations/gyoutenshin-02-profile-b.png",
+      "/gods/illustrations/gyoutenshin-03-advice1.png",
+      "/gods/illustrations/gyoutenshin-04-advice2.png",
+      "/gods/illustrations/gyoutenshin-05-advice3.png",
+    ],
   },
   {
     name: "疾風神",
@@ -557,6 +568,7 @@ export type FortuneResult = {
   reading: string;
   emoji: string;
   image: string;
+  illustrations?: string[];
   essence: string;
   strengths: string[];
   weaknesses: string[];
@@ -619,6 +631,7 @@ export function buildFortuneResultFromIndices(
     reading: `${god.reading} / ${phase.reading}`,
     emoji: god.emoji,
     image: god.image,
+    illustrations: god.illustrations,
     essence: `${god.personality} ${phase.description}`,
     strengths: [...god.strengths, MODE_STRENGTH[personalityType]],
     weaknesses: [...god.weaknesses, MODE_WEAKNESS[personalityType]],
