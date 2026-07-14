@@ -1,6 +1,7 @@
 "use client";
 
 import type { FortuneResult } from "@/lib/fortune";
+import { withBasePath } from "@/lib/basePath";
 
 type TypeInfo = { emoji: string; label: string };
 
@@ -32,7 +33,7 @@ export default function ResultCard({
           ) : (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src={result.image}
+              src={withBasePath(result.image)}
               alt={result.title}
               onError={onImageError}
               className="w-56 h-[336px] object-cover object-top rounded-xl mx-auto mb-3 shadow-lg ring-2 ring-white/30"

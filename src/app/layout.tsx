@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { withBasePath } from "@/lib/basePath";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   title: "守護女神占い | 生年月日×性格でわかる新感覚占い",
   description:
     "生年月日から導く60の守護女神と、心理テストでわかる性格タイプを掛け合わせた新ジャンルの占い「守護女神占い」。",
-  manifest: "/manifest.json",
+  manifest: withBasePath("/manifest.json"),
 };
 
 export const viewport: Viewport = {

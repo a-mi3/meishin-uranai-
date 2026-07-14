@@ -5,10 +5,12 @@ import {
   QUESTIONS,
   TYPE_INFO,
   buildFortuneResult,
+  getGodAndPhase,
   tallyPersonalityType,
   type PersonalityType,
 } from "@/lib/fortune";
-import ResultCard from "@/components/ResultCard";
+import FreeResultPreview from "@/components/FreeResultPreview";
+import { saveLastResult } from "@/lib/lastResultStorage";
 
 type Stage = "intro" | "quiz" | "result";
 
@@ -99,6 +101,12 @@ export default function Home() {
   useEffect(() => {
     setImageFailed(false);
   }, [result?.image]);
+
+  useEffect(() => {
+    if (!birthDate || !personalityType) return;
+    const { godIndex, phaseIndex } = getGodAndPhase(birthDate);
+    saveLastResult({ godIndex, phaseIndex, mode: personalityType });
+  }, [birthDate, personalityType]);
 
   const shareResult = async () => {
     if (!result || !typeInfo) return;
@@ -243,7 +251,7 @@ export default function Home() {
 
         {stage === "result" && result && typeInfo && (
           <div>
-            <ResultCard
+            <FreeResultPreview
               result={result}
               typeInfo={typeInfo}
               imageFailed={imageFailed}
