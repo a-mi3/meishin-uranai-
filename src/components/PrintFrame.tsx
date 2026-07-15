@@ -1,39 +1,24 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
+import { withBasePath } from "@/lib/basePath";
 
-function CornerOrnament({ style }: { style: CSSProperties }) {
-  return (
-    <svg
-      width="22"
-      height="22"
-      viewBox="0 0 22 22"
-      className="absolute"
-      style={style}
-    >
-      <path
-        d="M11 0 L12.9 8.1 L22 11 L12.9 13.9 L11 22 L9.1 13.9 L0 11 L9.1 8.1 Z"
-        fill="#6d28d9"
-      />
-      <circle cx="11" cy="11" r="2" fill="#f5f0ff" />
-    </svg>
-  );
-}
-
-export default function PrintFrame({ children }: { children: ReactNode }) {
+export default function PrintFrame({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
     <div
-      className="relative m-3"
+      className={`relative m-0.5 ${className}`.trim()}
       style={{
-        border: "2px solid #6d28d9",
-        outline: "1.5px solid #6d28d9",
-        outlineOffset: "6px",
-        borderRadius: "4px",
+        backgroundImage: `url(${withBasePath("/print-frame.png")})`,
+        backgroundSize: "100% 100%",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
       }}
     >
-      <CornerOrnament style={{ top: -11, left: -11 }} />
-      <CornerOrnament style={{ top: -11, right: -11 }} />
-      <CornerOrnament style={{ bottom: -11, left: -11 }} />
-      <CornerOrnament style={{ bottom: -11, right: -11 }} />
-      <div className="p-4">{children}</div>
+      <div className="p-1">{children}</div>
     </div>
   );
 }

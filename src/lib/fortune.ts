@@ -198,10 +198,9 @@ export const GODS: God[] = [
       "full-body shot, entire body visible from head to toe, wide shot, A youthful Japanese dawn goddess, beautiful young woman, Goddess of Awakening Dawn, standing full-length at the edge of a cliff facing the sunrise, dynamic forward-leaning pose, flowing orange and gold hakama robes, long hair blown by wind, holding a small brass pocket watch, sunrise light rays, warm orange and gold color palette, Japanese fantasy goddess portrait, elegant flowing robes with intricate patterns, mystical atmosphere, soft cinematic lighting, delicate linework, digital painting, highly detailed, trending on artstation --ar 2:3 --niji 6",
     illustrations: [
       "/gods/illustrations/gyoutenshin-01-profile-a.png",
-      "/gods/illustrations/gyoutenshin-02-profile-b.png",
-      "/gods/illustrations/gyoutenshin-03-advice1.png",
-      "/gods/illustrations/gyoutenshin-04-advice2.png",
-      "/gods/illustrations/gyoutenshin-05-advice3.png",
+      "/gods/illustrations/gyoutenshin-02-advice1.png",
+      "/gods/illustrations/gyoutenshin-03-advice2.png",
+      "/gods/illustrations/gyoutenshin-04-advice3.png",
     ],
   },
   {
@@ -225,6 +224,12 @@ export const GODS: God[] = [
     image: "/gods/shippuushin.png",
     imagePrompt:
       "full-body shot, entire body visible from head to toe, wide shot, A free-spirited Japanese wind goddess, beautiful young woman, Goddess of the Swift Wind, robes and long hair swept by strong wind, light traveler's attire, sky blue and white fabric, standing full-length on a windswept plain or floating cloud, carrying a small lightweight satchel, dynamic windblown motion, sky blue color palette, Japanese fantasy goddess portrait, elegant flowing robes with intricate patterns, mystical atmosphere, soft cinematic lighting, delicate linework, digital painting, highly detailed, trending on artstation --ar 2:3 --niji 6",
+    illustrations: [
+      "/gods/illustrations/shippuushin-01-profile-a.png",
+      "/gods/illustrations/shippuushin-02-advice1.png",
+      "/gods/illustrations/shippuushin-03-advice2.png",
+      "/gods/illustrations/shippuushin-04-advice3.png",
+    ],
   },
   {
     name: "大地神",
@@ -247,6 +252,12 @@ export const GODS: God[] = [
     image: "/gods/daichishin.png",
     imagePrompt:
       "full-body shot, entire body visible from head to toe, wide shot, A sturdy Japanese earth goddess, graceful yet strong woman, Goddess of Unshaken Earth, calm grounded stance, heavy terracotta and brown robes with stone-like texture patterns, standing full-length amid ancient rocks and roots, holding a worn leather notebook, calm powerful presence, warm earthy terracotta color palette, Japanese fantasy goddess portrait, elegant flowing robes with intricate patterns, mystical atmosphere, soft cinematic lighting, delicate linework, digital painting, highly detailed, trending on artstation --ar 2:3 --niji 6",
+    illustrations: [
+      "/gods/illustrations/daichishin-01-profile-a.png",
+      "/gods/illustrations/daichishin-02-advice1.png",
+      "/gods/illustrations/daichishin-03-advice2.png",
+      "/gods/illustrations/daichishin-04-advice3.png",
+    ],
   },
   {
     name: "清流神",
@@ -269,6 +280,12 @@ export const GODS: God[] = [
     image: "/gods/seiryuushin.png",
     imagePrompt:
       "full-body shot, entire body visible from head to toe, wide shot, A serene Japanese water goddess, beautiful young woman, Goddess of the Clear Stream, calm observant expression, flowing pale aqua blue robes resembling rippling water, standing full-length beside a clear mountain stream, holding a small water flask, cool tranquil atmosphere, aqua blue color palette, Japanese fantasy goddess portrait, elegant flowing robes with intricate patterns, mystical atmosphere, soft cinematic lighting, delicate linework, digital painting, highly detailed, trending on artstation --ar 2:3 --niji 6",
+    illustrations: [
+      "/gods/illustrations/seiryuushin-01-profile-a.png",
+      "/gods/illustrations/seiryuushin-02-advice1.png",
+      "/gods/illustrations/seiryuushin-03-advice2.png",
+      "/gods/illustrations/seiryuushin-04-advice3.png",
+    ],
   },
   {
     name: "灯火神",
@@ -291,6 +308,12 @@ export const GODS: God[] = [
     image: "/gods/toukashin.png",
     imagePrompt:
       "full-body shot, entire body visible from head to toe, wide shot, A quiet Japanese flame goddess, beautiful young woman, Goddess of the Inner Flame, standing full-length, gentle composed expression, deep wine red robes with subtle ember patterns, cradling a small glowing candle or lantern in both hands, warm soft glow illuminating her face, dim mystical background, wine red and amber color palette, Japanese fantasy goddess portrait, elegant flowing robes with intricate patterns, mystical atmosphere, soft cinematic lighting, delicate linework, digital painting, highly detailed, trending on artstation --ar 2:3 --niji 6",
+    illustrations: [
+      "/gods/illustrations/toukashin-01-profile-a.png",
+      "/gods/illustrations/toukashin-02-advice1.png",
+      "/gods/illustrations/toukashin-03-advice2.png",
+      "/gods/illustrations/toukashin-04-advice3.png",
+    ],
   },
   {
     name: "深緑神",
@@ -313,6 +336,12 @@ export const GODS: God[] = [
     image: "/gods/shinryokushin.png",
     imagePrompt:
       "full-body shot, entire body visible from head to toe, wide shot, A gentle Japanese forest goddess, nurturing young woman, Goddess of the Deep Green, standing full-length, warm motherly expression, moss green robes decorated with leaf and vine patterns, surrounded by growing plants, holding a small potted sapling, soft dappled forest light, moss green color palette, Japanese fantasy goddess portrait, elegant flowing robes with intricate patterns, mystical atmosphere, soft cinematic lighting, delicate linework, digital painting, highly detailed, trending on artstation --ar 2:3 --niji 6",
+    illustrations: [
+      "/gods/illustrations/shinryokushin-01-profile-a.png",
+      "/gods/illustrations/shinryokushin-02-advice1.png",
+      "/gods/illustrations/shinryokushin-03-advice2.png",
+      "/gods/illustrations/shinryokushin-04-advice3.png",
+    ],
   },
   {
     name: "満月神",
@@ -335,6 +364,12 @@ export const GODS: God[] = [
     image: "/gods/mangetsushin.png",
     imagePrompt:
       "full-body shot, entire body visible from head to toe, wide shot, An ethereal Japanese moon goddess, beautiful young woman, Goddess of the Full Moon, gentle empathetic gaze, flowing moonlight silver robes with pale glowing accents, standing full-length under a large full moon, soft silver light, delicate silhouette, moonlit night background, moon silver color palette, Japanese fantasy goddess portrait, elegant flowing robes with intricate patterns, mystical atmosphere, soft cinematic lighting, delicate linework, digital painting, highly detailed, trending on artstation --ar 2:3 --niji 6",
+    illustrations: [
+      "/gods/illustrations/mangetsushin-01-profile-a.png",
+      "/gods/illustrations/mangetsushin-02-advice1.png",
+      "/gods/illustrations/mangetsushin-03-advice2.png",
+      "/gods/illustrations/mangetsushin-04-advice3.png",
+    ],
   },
   {
     name: "黄金神",
@@ -357,6 +392,12 @@ export const GODS: God[] = [
     image: "/gods/ougonshin.png",
     imagePrompt:
       "full-body shot, entire body visible from head to toe, wide shot, A confident Japanese golden goddess, regal beautiful woman, Goddess of the Golden Summit, proud posture, radiant gold and crimson ceremonial robes with ornate patterns, glowing golden accessories and jewelry, standing full-length atop a mountain peak, triumphant charismatic aura, gold color palette, Japanese fantasy goddess portrait, elegant flowing robes with intricate patterns, mystical atmosphere, soft cinematic lighting, delicate linework, digital painting, highly detailed, trending on artstation --ar 2:3 --niji 6",
+    illustrations: [
+      "/gods/illustrations/ougonshin-01-profile-a.png",
+      "/gods/illustrations/ougonshin-02-advice1.png",
+      "/gods/illustrations/ougonshin-03-advice2.png",
+      "/gods/illustrations/ougonshin-04-advice3.png",
+    ],
   },
   {
     name: "白銀神",
@@ -379,6 +420,12 @@ export const GODS: God[] = [
     image: "/gods/hakuginshin.png",
     imagePrompt:
       "full-body shot, entire body visible from head to toe, wide shot, A sharp elegant Japanese silver goddess, poised beautiful woman, Goddess of the Honed Blade, standing full-length, composed expression, platinum white and icy silver robes with sharp geometric patterns, holding an elegant fountain pen or thin blade, cool crisp winter atmosphere, snowflakes drifting, platinum silver color palette, Japanese fantasy goddess portrait, elegant flowing robes with intricate patterns, mystical atmosphere, soft cinematic lighting, delicate linework, digital painting, highly detailed, trending on artstation --ar 2:3 --niji 6",
+    illustrations: [
+      "/gods/illustrations/hakuginshin-01-profile-a.png",
+      "/gods/illustrations/hakuginshin-02-advice1.png",
+      "/gods/illustrations/hakuginshin-03-advice2.png",
+      "/gods/illustrations/hakuginshin-04-advice3.png",
+    ],
   },
   {
     name: "蒼穹神",
@@ -401,6 +448,12 @@ export const GODS: God[] = [
     image: "/gods/soukyuushin.png",
     imagePrompt:
       "full-body shot, entire body visible from head to toe, wide shot, A visionary Japanese sky goddess, beautiful young woman, Goddess of the Vast Sky, gazing upward with wonder, flowing cosmic blue robes with star and constellation patterns, floating full-length among clouds and stars, holding an astrolabe or star chart, expansive sky and galaxy background, cosmic blue color palette, Japanese fantasy goddess portrait, elegant flowing robes with intricate patterns, mystical atmosphere, soft cinematic lighting, delicate linework, digital painting, highly detailed, trending on artstation --ar 2:3 --niji 6",
+    illustrations: [
+      "/gods/illustrations/soukyuushin-01-profile-a.png",
+      "/gods/illustrations/soukyuushin-02-advice1.png",
+      "/gods/illustrations/soukyuushin-03-advice2.png",
+      "/gods/illustrations/soukyuushin-04-advice3.png",
+    ],
   },
   {
     name: "静寂神",
@@ -423,6 +476,12 @@ export const GODS: God[] = [
     image: "/gods/seijakushin.png",
     imagePrompt:
       "full-body shot, entire body visible from head to toe, wide shot, A serene Japanese goddess of silence, beautiful woman with a calm expression, Goddess of Deep Stillness, eyes gently closed in meditation, deep midnight blue robes with subtle quiet patterns, seated full-length in a tranquil dark forest or quiet shrine, holding an old book, calm profound aura, midnight blue color palette, Japanese fantasy goddess portrait, elegant flowing robes with intricate patterns, mystical atmosphere, soft cinematic lighting, delicate linework, digital painting, highly detailed, trending on artstation --ar 2:3 --niji 6",
+    illustrations: [
+      "/gods/illustrations/seijakushin-01-profile-a.png",
+      "/gods/illustrations/seijakushin-02-advice1.png",
+      "/gods/illustrations/seijakushin-03-advice2.png",
+      "/gods/illustrations/seijakushin-04-advice3.png",
+    ],
   },
   {
     name: "陽炎神",
@@ -445,6 +504,12 @@ export const GODS: God[] = [
     image: "/gods/kageroushin.png",
     imagePrompt:
       "full-body shot, entire body visible from head to toe, wide shot, A mysterious shapeshifting Japanese goddess, ethereal beautiful woman, Goddess of the Shimmering Mirage, standing full-length, ambiguous fluid silhouette, robes in flowing aurora-like iridescent colors shifting between hues, wavering heat-haze visual distortion effect, holding a small kaleidoscope, dreamlike surreal atmosphere, aurora multicolor palette, Japanese fantasy goddess portrait, elegant flowing robes with intricate patterns, mystical atmosphere, soft cinematic lighting, delicate linework, digital painting, highly detailed, trending on artstation --ar 2:3 --niji 6",
+    illustrations: [
+      "/gods/illustrations/kageroushin-01-profile-a.png",
+      "/gods/illustrations/kageroushin-02-advice1.png",
+      "/gods/illustrations/kageroushin-03-advice2.png",
+      "/gods/illustrations/kageroushin-04-advice3.png",
+    ],
   },
 ];
 

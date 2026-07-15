@@ -28,15 +28,9 @@ body {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-}
 
-.print-bg-pattern {
-  background-color: #faf8ff;
-  background-image: radial-gradient(circle, rgba(109, 40, 217, 0.16) 1.2px, transparent 1.6px);
-  background-size: 24px 24px;
-}
-
-.print-page-break {
-  break-before: page;
-  page-break-before: always;
+  .print-page-break {
+    break-before: page;
+    page-break-before: always;
+  }
 }
