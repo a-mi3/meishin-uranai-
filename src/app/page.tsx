@@ -11,6 +11,7 @@ import {
 } from "@/lib/fortune";
 import FreeResultPreview from "@/components/FreeResultPreview";
 import { saveLastResult } from "@/lib/lastResultStorage";
+import { withBasePath } from "@/lib/basePath";
 
 type Stage = "intro" | "quiz" | "result";
 
@@ -137,7 +138,13 @@ export default function Home() {
           <p className="text-purple-200 text-xs tracking-widest mb-2">
             60の守護神 × 心理テスト
           </p>
-          <h1 className="text-3xl font-bold text-white mb-2">守護女神占い</h1>
+          <h1 className="sr-only">守護女神占い</h1>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={withBasePath("/title-banner.png")}
+            alt="守護女神占い"
+            className="w-full h-auto rounded-2xl shadow-lg mb-3"
+          />
           <p className="text-purple-200 text-sm">
             生年月日から導く「60の守護神」と、心理テストでわかる「今のあなたのモード」を掛け合わせた新ジャンルの占い
           </p>

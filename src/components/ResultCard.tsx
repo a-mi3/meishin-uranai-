@@ -38,7 +38,19 @@ export default function ResultCard({
 
   return (
     <div className="print-page">
+      {/* 表紙ページ：タイトルバナー */}
       <PrintFrame>
+        <div className="flex items-center justify-center" style={{ minHeight: "700px" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={withBasePath("/title-banner.png")}
+            alt="守護女神占い"
+            className="w-full h-auto rounded-2xl shadow-lg"
+          />
+        </div>
+      </PrintFrame>
+
+      <PrintFrame className="print-page-break">
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
           <div
             className="px-7 py-8 text-center"
