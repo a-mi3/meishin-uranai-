@@ -3,4 +3,4 @@
 // 例: "https://uranai.see-en.net/?add-to-cart=123"
 export const PURCHASE_URL =
   "https://uranai.see-en.net/?add-to-cart=REPLACE_WITH_PRODUCT_ID";
-export const PURCHASE_PRICE_LABEL = "¥500";
+export const PURCHASE_PRICE_LABEL = "¥1,000";
