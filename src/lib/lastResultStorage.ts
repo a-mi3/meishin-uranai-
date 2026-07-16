@@ -15,3 +15,14 @@ export function saveLastResult(result: LastResult) {
     // the purchase flow simply won't be able to auto-redirect after checkout.
   }
 }
+
+export function getLastResult(): LastResult | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw) as LastResult;
+  } catch {
+    return null;
+  }
+}
