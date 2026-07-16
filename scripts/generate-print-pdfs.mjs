@@ -5,14 +5,15 @@
 //
 // Prerequisite: the app must already be running — either `npm run dev`, or
 // `npm run build` followed by serving the static `out/` folder (e.g. `npx serve out`).
-// Usage: PRINT_BASE_URL=http://localhost:3000 node scripts/generate-print-pdfs.mjs
+// Usage: PRINT_BASE_URL=http://localhost:3000/app node scripts/generate-print-pdfs.mjs
 
 import { chromium } from "playwright";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const BASE_URL = process.env.PRINT_BASE_URL || "http://localhost:3000";
+// next.config.ts sets basePath "/app", so routes are only served under /app.
+const BASE_URL = process.env.PRINT_BASE_URL || "http://localhost:3000/app";
 const GOD_COUNT = 12;
 const PHASE_COUNT = 5;
 const MODES = ["challenger", "seeker", "harmonizer", "guardian"];
