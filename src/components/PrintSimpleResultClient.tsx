@@ -28,7 +28,7 @@ export default function PrintSimpleResultClient({
       }}
     >
       <PrintFrame>
-        <div className="bg-white px-6 py-2 max-w-xl mx-auto">
+        <div className="px-6 py-2 max-w-xl mx-auto">
           <SimpleResultCard
             result={result}
             typeInfo={typeInfo}

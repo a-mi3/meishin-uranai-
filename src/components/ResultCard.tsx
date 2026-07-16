@@ -51,9 +51,9 @@ export default function ResultCard({
       </PrintFrame>
 
       <PrintFrame className="print-page-break">
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="rounded-2xl" style={{ backgroundColor: "rgba(255,255,255,0.85)" }}>
           <div
-            className="px-7 py-8 text-center"
+            className="rounded-t-2xl px-7 py-8 text-center"
             style={{
               background: `linear-gradient(135deg, #6d28d9dd, #3b1d63dd)`,
             }}
@@ -86,7 +86,7 @@ export default function ResultCard({
 
       {/* ページ2：プロフィール(強み・注意点・恋愛・仕事・相性・アイテム・カラー・ヒント) */}
       <PrintFrame className="print-page-break">
-        <div className="bg-white rounded-2xl shadow-lg p-7">
+        <div className="rounded-2xl p-7" style={{ backgroundColor: "rgba(255,255,255,0.85)" }}>
           <Banner src={illustrations[0]} />
           <h3 className="text-base font-bold mb-4" style={{ color: "#6d28d9" }}>
             📋 プロフィール
@@ -166,10 +166,7 @@ export default function ResultCard({
 
       {/* ページ4：アドバイス1(今のあなたについて・モード) */}
       <PrintFrame className="print-page-break">
-        <div
-          className="rounded-2xl shadow-lg p-6 sm:p-7 border-2"
-          style={{ borderColor: "#6d28d9", backgroundColor: "#f5f0ff" }}
-        >
+        <div className="rounded-2xl p-6 sm:p-7" style={{ backgroundColor: "rgba(255,255,255,0.85)" }}>
           <Banner src={illustrations[1]} />
           <h3 className="text-base font-bold mb-4" style={{ color: "#6d28d9" }}>
             💬 あなたへの詳しいアドバイス
@@ -189,10 +186,7 @@ export default function ResultCard({
 
       {/* ページ5〜：アドバイス2+3(今という時期〜最後に、区切らず自然に流す) */}
       <PrintFrame className="print-page-break">
-        <div
-          className="rounded-2xl shadow-lg p-6 sm:p-7 border-2"
-          style={{ borderColor: "#6d28d9", backgroundColor: "#f5f0ff" }}
-        >
+        <div className="rounded-2xl p-6 sm:p-7" style={{ backgroundColor: "rgba(255,255,255,0.85)" }}>
           <Banner src={illustrations[2]} />
           <div className="space-y-5">
             <div>
@@ -215,8 +209,8 @@ export default function ResultCard({
       {/* 最終ページ：まとめ＋QRコードで再来訪を促す */}
       <PrintFrame className="print-page-break">
         <div
-          className="rounded-2xl shadow-lg p-6 sm:p-7 border-2 text-center"
-          style={{ borderColor: "#6d28d9", backgroundColor: "#f5f0ff" }}
+          className="rounded-2xl p-6 sm:p-7 text-center"
+          style={{ backgroundColor: "rgba(255,255,255,0.85)" }}
         >
           {imageFailed ? (
             <p className="text-4xl mb-3">{result.emoji}</p>

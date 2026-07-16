@@ -18,7 +18,7 @@ export default function PrintFrame({
         backgroundPosition: "center",
       }}
     >
-      <div className="p-1">{children}</div>
+      <div className="p-[7%]">{children}</div>
     </div>
   );
 }

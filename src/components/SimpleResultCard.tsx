@@ -21,7 +21,7 @@ export default function SimpleResultCard({
   onImageError,
 }: SimpleResultCardProps) {
   return (
-    <div className="bg-white">
+    <div className="rounded-2xl p-4" style={{ backgroundColor: "rgba(255,255,255,0.85)" }}>
       <div
         className="rounded-2xl px-6 py-4 text-center mb-2"
         style={{ background: "linear-gradient(135deg, #6d28d9dd, #3b1d63dd)" }}
