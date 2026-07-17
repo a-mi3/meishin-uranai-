@@ -2,6 +2,7 @@
 
 import type { FortuneResult } from "@/lib/fortune";
 import { withBasePath } from "@/lib/basePath";
+import { breakAtSentences } from "@/lib/breakSentences";
 import PrintFrame from "@/components/PrintFrame";
 
 type TypeInfo = { emoji: string; label: string };
@@ -55,7 +56,7 @@ export default function ResultCard({
           <div
             className="rounded-t-2xl px-7 py-8 text-center"
             style={{
-              background: `linear-gradient(135deg, #6d28d9dd, #3b1d63dd)`,
+              background: `linear-gradient(135deg, #6d28d9, #3b1d63)`,
             }}
           >
             <p className="text-white/80 text-sm mb-1">あなたを守る神様は…</p>
@@ -79,7 +80,9 @@ export default function ResultCard({
           </div>
           <div className="px-7 py-5">
             <h3 className="text-sm font-bold text-gray-800 mb-2">🌟 本質</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{result.essence}</p>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              {breakAtSentences(result.essence)}
+            </p>
           </div>
         </div>
       </PrintFrame>
@@ -124,13 +127,17 @@ export default function ResultCard({
               <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
                 💕 恋愛傾向
               </h4>
-              <p className="text-sm text-gray-600 leading-relaxed">{result.loveStyle}</p>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                {breakAtSentences(result.loveStyle)}
+              </p>
             </div>
             <div>
               <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
                 💼 仕事スタイル
               </h4>
-              <p className="text-sm text-gray-600 leading-relaxed">{result.workStyle}</p>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                {breakAtSentences(result.workStyle)}
+              </p>
             </div>
           </div>
 
@@ -159,7 +166,9 @@ export default function ResultCard({
             <h4 className="text-sm font-bold mb-1.5 flex items-center gap-2" style={{ color: "#6d28d9" }}>
               ⏳ 今の過ごし方のヒント
             </h4>
-            <p className="text-sm text-gray-700 leading-relaxed">{result.luckyAction}</p>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              {breakAtSentences(result.luckyAction)}
+            </p>
           </div>
         </div>
       </PrintFrame>
@@ -174,11 +183,15 @@ export default function ResultCard({
           <div className="space-y-5">
             <div>
               <h4 className="text-sm font-bold text-gray-800 mb-1.5">{today.title}</h4>
-              <p className="text-sm text-gray-700 leading-relaxed">{today.body}</p>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {breakAtSentences(today.body)}
+              </p>
             </div>
             <div>
               <h4 className="text-sm font-bold text-gray-800 mb-1.5">{tone.title}</h4>
-              <p className="text-sm text-gray-700 leading-relaxed">{tone.body}</p>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {breakAtSentences(tone.body)}
+              </p>
             </div>
           </div>
         </div>
@@ -191,16 +204,22 @@ export default function ResultCard({
           <div className="space-y-5">
             <div>
               <h4 className="text-sm font-bold text-gray-800 mb-1.5">{period.title}</h4>
-              <p className="text-sm text-gray-700 leading-relaxed">{period.body}</p>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {breakAtSentences(period.body)}
+              </p>
             </div>
             <div>
               <h4 className="text-sm font-bold text-gray-800 mb-1.5">{relationship.title}</h4>
-              <p className="text-sm text-gray-700 leading-relaxed">{relationship.body}</p>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {breakAtSentences(relationship.body)}
+              </p>
             </div>
             <Banner src={illustrations[3]} />
             <div>
               <h4 className="text-sm font-bold text-gray-800 mb-1.5">{actionPlan.title}</h4>
-              <p className="text-sm text-gray-700 leading-relaxed">{actionPlan.body}</p>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {breakAtSentences(actionPlan.body)}
+              </p>
             </div>
           </div>
         </div>
@@ -224,7 +243,9 @@ export default function ResultCard({
           )}
           <div className="text-left mb-4">
             <h4 className="text-sm font-bold text-gray-800 mb-1.5">{closing.title}</h4>
-            <p className="text-sm text-gray-700 leading-relaxed">{closing.body}</p>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              {breakAtSentences(closing.body)}
+            </p>
           </div>
           <div className="rounded-xl p-4 bg-white inline-flex flex-col items-center gap-1.5">
             {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import type { FortuneResult } from "@/lib/fortune";
 import ResultCard from "@/components/ResultCard";
-import { withBasePath } from "@/lib/basePath";
 
 type TypeInfo = { emoji: string; label: string };
 
@@ -17,15 +16,7 @@ export default function PrintResultClient({
   const [imageFailed, setImageFailed] = useState(false);
 
   return (
-    <div
-      className="px-8 py-10"
-      style={{
-        backgroundColor: "#faf8ff",
-        backgroundImage: `url(${withBasePath("/print-bg.png")})`,
-        backgroundSize: "260px 260px",
-        backgroundRepeat: "repeat",
-      }}
-    >
+    <div style={{ backgroundColor: "#faf8ff" }}>
       <div className="max-w-xl mx-auto">
         <ResultCard
           result={result}

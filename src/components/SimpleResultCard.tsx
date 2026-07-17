@@ -24,7 +24,7 @@ export default function SimpleResultCard({
     <div className="rounded-2xl p-4" style={{ backgroundColor: "rgba(255,255,255,0.85)" }}>
       <div
         className="rounded-2xl px-6 py-4 text-center mb-2"
-        style={{ background: "linear-gradient(135deg, #6d28d9dd, #3b1d63dd)" }}
+        style={{ background: "linear-gradient(135deg, #6d28d9, #3b1d63)" }}
       >
         <p className="text-white/80 text-xs mb-1">あなたを守る神様は…</p>
         {imageFailed ? (
