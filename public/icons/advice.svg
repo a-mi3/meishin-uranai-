@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="35%" stop-color="#FDF3CE"/>
+      <stop offset="65%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#FDF3CE"/>
+    </linearGradient>
+    <linearGradient id="mysticGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F1C4E1"/>
+      <stop offset="50%" stop-color="#D4B5E8"/>
+      <stop offset="100%" stop-color="#A2C2E8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FDF3CE" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FDF3CE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(100, 100)">
+    <path d="M -35 20 A 25 25 0 0 1 -15 -15 A 35 35 0 0 1 20 -15 A 25 25 0 0 1 45 20 Z" fill="url(#mysticGrad)" stroke="url(#goldGrad)" stroke-width="4"/><line x1="-20" y1="20" x2="-20" y2="50" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="2 4"/><line x1="5" y1="20" x2="5" y2="70" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="2 4"/><line x1="30" y1="20" x2="30" y2="45" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="2 4"/><path d="M -20 49 L -18.2 53.2 L -14 53.2 L -17.6 56.2 L -16.4 59.8 L -20 58.0 L -23.6 59.8 L -22.4 56.2 L -26 53.2 L -21.8 53.2 Z" fill="url(#goldGrad)"/> <path d="M 5 67 L 7.4 72.6 L 13 72.6 L 8.2 76.6 L 9.8 81.4 L 5 79.0 L 0.20000000000000018 81.4 L 1.7999999999999998 76.6 L -3 72.6 L 2.6 72.6 Z" fill="url(#goldGrad)"/> <path d="M 30 45 L 31.5 48.5 L 35 48.5 L 32.0 51.0 L 33.0 54.0 L 30 52.5 L 27.0 54.0 L 28.0 51.0 L 25 48.5 L 28.5 48.5 Z" fill="url(#goldGrad)"/><path d="M 40 -40 Q 40 -30 50 -30 Q 40 -30 40 -20 Q 40 -30 30 -30 Q 40 -30 40 -40 Z" fill="#ffffff" opacity="0.8"/>
+  </g>
+</svg>

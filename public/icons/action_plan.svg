@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="35%" stop-color="#FDF3CE"/>
+      <stop offset="65%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#FDF3CE"/>
+    </linearGradient>
+    <linearGradient id="mysticGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F1C4E1"/>
+      <stop offset="50%" stop-color="#D4B5E8"/>
+      <stop offset="100%" stop-color="#A2C2E8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FDF3CE" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FDF3CE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(100, 100)">
+    <path d="M -55 55 Q -10 10 50 -50 Q 20 -20 -30 60 Z" fill="url(#mysticGrad)" opacity="0.8"/><path d="M -45 45 Q -5 25 40 -40 Q 25 -5 -15 55 Z" fill="#ffffff" opacity="0.5"/><polygon points="40,-40 65,-50 50,-25 75,-15 45,-10 40,15 30,-10 5,-15 25,-25 15,-50" fill="url(#goldGrad)"/><path d="M -20 0 Q -20 10 -10 10 Q -20 10 -20 20 Q -20 10 -30 10 Q -20 10 -20 0 Z" fill="#ffffff" opacity="0.8"/> <path d="M -40 22 Q -40 30 -32 30 Q -40 30 -40 38 Q -40 30 -48 30 Q -40 30 -40 22 Z" fill="#ffffff" opacity="0.8"/> <path d="M 10 -42 Q 10 -30 22 -30 Q 10 -30 10 -18 Q 10 -30 -2 -30 Q 10 -30 10 -42 Z" fill="#ffffff" opacity="0.8"/>
+  </g>
+</svg>

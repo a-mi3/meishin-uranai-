@@ -2,6 +2,7 @@
 
 import type { FortuneResult } from "@/lib/fortune";
 import { withBasePath } from "@/lib/basePath";
+import Icon from "@/components/Icon";
 
 type TypeInfo = { emoji: string; label: string };
 
@@ -47,13 +48,17 @@ export default function SimpleResultCard({
       </div>
 
       <div className="border-2 rounded-xl px-5 py-2 mb-1.5" style={{ borderColor: BORDER_COLOR }}>
-        <h3 className="text-sm font-bold text-gray-800 mb-1">🌟 本質</h3>
+        <h3 className="text-sm font-bold text-gray-800 mb-1 flex items-center gap-1">
+          <Icon name="essence" /> 本質
+        </h3>
         <p className="text-xs text-gray-600 leading-snug">{result.essence}</p>
       </div>
 
       <div className="grid grid-cols-2 gap-2 mb-1.5">
         <div className="border-2 rounded-xl px-3 py-2" style={{ borderColor: BORDER_COLOR }}>
-          <h3 className="text-sm font-bold text-gray-800 mb-1">💪 強み</h3>
+          <h3 className="text-sm font-bold text-gray-800 mb-1 flex items-center gap-1">
+            <Icon name="strength" /> 強み
+          </h3>
           <ul className="space-y-0.5">
             {result.strengths.map((s, i) => (
               <li key={i} className="text-xs text-gray-600">
@@ -63,7 +68,9 @@ export default function SimpleResultCard({
           </ul>
         </div>
         <div className="border-2 rounded-xl px-3 py-2" style={{ borderColor: BORDER_COLOR }}>
-          <h3 className="text-sm font-bold text-gray-800 mb-1">⚠️ 注意点</h3>
+          <h3 className="text-sm font-bold text-gray-800 mb-1 flex items-center gap-1">
+            <Icon name="caution" /> 注意点
+          </h3>
           <ul className="space-y-0.5">
             {result.weaknesses.map((w, i) => (
               <li key={i} className="text-xs text-gray-600">
@@ -76,26 +83,36 @@ export default function SimpleResultCard({
 
       <div className="grid grid-cols-2 gap-2 mb-1.5">
         <div className="border-2 rounded-xl px-3 py-2" style={{ borderColor: BORDER_COLOR }}>
-          <h3 className="text-sm font-bold text-gray-800 mb-1">💕 恋愛傾向</h3>
+          <h3 className="text-sm font-bold text-gray-800 mb-1 flex items-center gap-1">
+            <Icon name="romance" /> 恋愛傾向
+          </h3>
           <p className="text-xs text-gray-600 leading-snug">{result.loveStyle}</p>
         </div>
         <div className="border-2 rounded-xl px-3 py-2" style={{ borderColor: BORDER_COLOR }}>
-          <h3 className="text-sm font-bold text-gray-800 mb-1">💼 仕事スタイル</h3>
+          <h3 className="text-sm font-bold text-gray-800 mb-1 flex items-center gap-1">
+            <Icon name="workstyle" /> 仕事スタイル
+          </h3>
           <p className="text-xs text-gray-600 leading-snug">{result.workStyle}</p>
         </div>
       </div>
 
       <div className="grid grid-cols-3 gap-2 mb-1.5 text-center">
         <div className="border-2 rounded-xl px-2.5 py-2" style={{ borderColor: BORDER_COLOR }}>
-          <h3 className="text-sm font-bold text-gray-800 mb-1">🤝 相性</h3>
+          <h3 className="text-sm font-bold text-gray-800 mb-1 flex items-center justify-center gap-1">
+            <Icon name="compatibility" /> 相性
+          </h3>
           <p className="text-xs text-gray-600">{result.compatibleWith}</p>
         </div>
         <div className="border-2 rounded-xl px-2.5 py-2" style={{ borderColor: BORDER_COLOR }}>
-          <h3 className="text-sm font-bold text-gray-800 mb-1">🍀 アイテム</h3>
+          <h3 className="text-sm font-bold text-gray-800 mb-1 flex items-center justify-center gap-1">
+            <Icon name="lucky_item" /> アイテム
+          </h3>
           <p className="text-xs text-gray-600">{result.luckyItem}</p>
         </div>
         <div className="border-2 rounded-xl px-2.5 py-2" style={{ borderColor: BORDER_COLOR }}>
-          <h3 className="text-sm font-bold text-gray-800 mb-1">🎨 カラー</h3>
+          <h3 className="text-sm font-bold text-gray-800 mb-1 flex items-center justify-center gap-1">
+            <Icon name="lucky_color" /> カラー
+          </h3>
           <p className="text-xs text-gray-600">{result.luckyColor}</p>
         </div>
       </div>
@@ -104,8 +121,11 @@ export default function SimpleResultCard({
         className="rounded-xl px-4 py-2.5 border-2"
         style={{ borderColor: "#6d28d9", backgroundColor: "#f5f0ff" }}
       >
-        <h3 className="text-sm font-bold mb-1" style={{ color: "#6d28d9" }}>
-          ⏳ 今の過ごし方のヒント
+        <h3
+          className="text-sm font-bold mb-1 flex items-center gap-1"
+          style={{ color: "#6d28d9" }}
+        >
+          <Icon name="hint" /> 今の過ごし方のヒント
         </h3>
         <p className="text-xs text-gray-700 leading-snug">{result.luckyAction}</p>
       </div>

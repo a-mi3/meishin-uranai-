@@ -4,6 +4,7 @@ import type { FortuneResult } from "@/lib/fortune";
 import { withBasePath } from "@/lib/basePath";
 import { breakAtSentences } from "@/lib/breakSentences";
 import PrintFrame from "@/components/PrintFrame";
+import Icon from "@/components/Icon";
 
 type TypeInfo = { emoji: string; label: string };
 
@@ -79,7 +80,9 @@ export default function ResultCard({
             </div>
           </div>
           <div className="px-7 py-5">
-            <h3 className="text-sm font-bold text-gray-800 mb-2">🌟 本質</h3>
+            <h3 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-1.5">
+              <Icon name="essence" className="w-5 h-5" /> 本質
+            </h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               {breakAtSentences(result.essence)}
             </p>
@@ -91,13 +94,16 @@ export default function ResultCard({
       <PrintFrame className="print-page-break">
         <div className="rounded-2xl p-7" style={{ backgroundColor: "rgba(255,255,255,0.85)" }}>
           <Banner src={illustrations[0]} />
-          <h3 className="text-base font-bold mb-4" style={{ color: "#6d28d9" }}>
-            📋 プロフィール
+          <h3
+            className="text-base font-bold mb-4 flex items-center gap-1.5"
+            style={{ color: "#6d28d9" }}
+          >
+            <Icon name="profile" className="w-5 h-5" /> プロフィール
           </h3>
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
               <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
-                💪 強み
+                <Icon name="strength" /> 強み
               </h4>
               <ul className="space-y-1.5">
                 {result.strengths.map((s, i) => (
@@ -110,7 +116,7 @@ export default function ResultCard({
             </div>
             <div>
               <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
-                ⚠️ 注意点
+                <Icon name="caution" /> 注意点
               </h4>
               <ul className="space-y-1.5">
                 {result.weaknesses.map((w, i) => (
@@ -125,7 +131,7 @@ export default function ResultCard({
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
               <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
-                💕 恋愛傾向
+                <Icon name="romance" /> 恋愛傾向
               </h4>
               <p className="text-sm text-gray-600 leading-relaxed">
                 {breakAtSentences(result.loveStyle)}
@@ -133,7 +139,7 @@ export default function ResultCard({
             </div>
             <div>
               <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
-                💼 仕事スタイル
+                <Icon name="workstyle" /> 仕事スタイル
               </h4>
               <p className="text-sm text-gray-600 leading-relaxed">
                 {breakAtSentences(result.workStyle)}
@@ -144,19 +150,19 @@ export default function ResultCard({
           <div className="grid grid-cols-3 gap-4 mb-4">
             <div>
               <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
-                🤝 相性
+                <Icon name="compatibility" /> 相性
               </h4>
               <p className="text-sm text-gray-600">{result.compatibleWith}</p>
             </div>
             <div>
               <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
-                🍀 アイテム
+                <Icon name="lucky_item" /> アイテム
               </h4>
               <p className="text-sm text-gray-600">{result.luckyItem}</p>
             </div>
             <div>
               <h4 className="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
-                🎨 カラー
+                <Icon name="lucky_color" /> カラー
               </h4>
               <p className="text-sm text-gray-600">{result.luckyColor}</p>
             </div>
@@ -164,7 +170,7 @@ export default function ResultCard({
 
           <div className="rounded-xl p-4" style={{ backgroundColor: "#f5f0ff" }}>
             <h4 className="text-sm font-bold mb-1.5 flex items-center gap-2" style={{ color: "#6d28d9" }}>
-              ⏳ 今の過ごし方のヒント
+              <Icon name="hint" /> 今の過ごし方のヒント
             </h4>
             <p className="text-sm text-gray-700 leading-relaxed">
               {breakAtSentences(result.luckyAction)}
@@ -177,8 +183,11 @@ export default function ResultCard({
       <PrintFrame className="print-page-break">
         <div className="rounded-2xl p-6 sm:p-7" style={{ backgroundColor: "rgba(255,255,255,0.85)" }}>
           <Banner src={illustrations[1]} />
-          <h3 className="text-base font-bold mb-4" style={{ color: "#6d28d9" }}>
-            💬 あなたへの詳しいアドバイス
+          <h3
+            className="text-base font-bold mb-4 flex items-center gap-1.5"
+            style={{ color: "#6d28d9" }}
+          >
+            <Icon name="advice" className="w-5 h-5" /> あなたへの詳しいアドバイス
           </h3>
           <div className="space-y-5">
             <div>
