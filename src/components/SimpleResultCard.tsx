@@ -36,7 +36,7 @@ export default function SimpleResultCard({
             src={withBasePath(result.image)}
             alt={result.title}
             onError={onImageError}
-            className="w-40 aspect-[2/3] object-cover rounded-xl mx-auto mb-2 shadow-lg ring-2 ring-white/30"
+            className="w-full aspect-[2.2/1] object-cover object-top rounded-xl mb-2 shadow-lg ring-2 ring-white/30"
           />
         )}
         <h2 className="text-2xl font-bold text-white mb-1">{result.title}</h2>
