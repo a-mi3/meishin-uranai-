@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
   <defs>
     <linearGradient id="goldGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#D4AF37"/>
-      <stop offset="35%" stop-color="#FDF3CE"/>
-      <stop offset="65%" stop-color="#D4AF37"/>
-      <stop offset="100%" stop-color="#FDF3CE"/>
+      <stop offset="0%" stop-color="#B8860B"/>
+      <stop offset="35%" stop-color="#D4AF37"/>
+      <stop offset="65%" stop-color="#B8860B"/>
+      <stop offset="100%" stop-color="#D4AF37"/>
     </linearGradient>
     <linearGradient id="mysticGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F1C4E1"/>
-      <stop offset="50%" stop-color="#D4B5E8"/>
-      <stop offset="100%" stop-color="#A2C2E8"/>
+      <stop offset="0%" stop-color="#C2559B"/>
+      <stop offset="50%" stop-color="#8B4FC7"/>
+      <stop offset="100%" stop-color="#4A72C4"/>
     </linearGradient>
     <radialGradient id="glow" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="#FDF3CE" stop-opacity="0.6"/>
@@ -17,6 +17,6 @@
     </radialGradient>
   </defs>
   <g transform="translate(100, 100)">
-    <path d="M -15 -45 A 45 45 0 1 1 -15 45 A 35 35 0 1 0 -15 -45 Z" fill="url(#goldGrad)"/><path d="M 15 -45 A 45 45 0 1 0 15 45 A 35 35 0 1 1 15 -45 Z" fill="url(#mysticGrad)" opacity="0.9"/><path d="M 0 -15 Q 0 0 15 0 Q 0 0 0 15 Q 0 0 -15 0 Q 0 0 0 -15 Z" fill="#ffffff" opacity="0.8"/> <path d="M -40 32 Q -40 40 -32 40 Q -40 40 -40 48 Q -40 40 -48 40 Q -40 40 -40 32 Z" fill="#ffffff" opacity="0.8"/> <path d="M 40 -50 Q 40 -40 50 -40 Q 40 -40 40 -30 Q 40 -40 30 -40 Q 40 -40 40 -50 Z" fill="#ffffff" opacity="0.8"/>
+    <circle cx="-20" cy="0" r="38" fill="url(#goldGrad)"/><circle cx="20" cy="0" r="38" fill="url(#mysticGrad)" opacity="0.85"/><path d="M 0 -15 Q 0 0 15 0 Q 0 0 0 15 Q 0 0 -15 0 Q 0 0 0 -15 Z" fill="#ffffff" opacity="0.8"/> <path d="M -40 32 Q -40 40 -32 40 Q -40 40 -40 48 Q -40 40 -48 40 Q -40 40 -40 32 Z" fill="#ffffff" opacity="0.8"/> <path d="M 40 -50 Q 40 -40 50 -40 Q 40 -40 40 -30 Q 40 -40 30 -40 Q 40 -40 40 -50 Z" fill="#ffffff" opacity="0.8"/>
   </g>
 </svg>

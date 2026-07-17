@@ -17,6 +17,6 @@
     </radialGradient>
   </defs>
   <g transform="translate(100, 100)">
-    <path d="M -15 -60 A 60 60 0 1 1 -15 60 A 45 45 0 1 0 -15 -60 Z" fill="url(#goldGrad)"/><path d="M 5 50 C -40 20 40 -20 5 -55" fill="none" stroke="url(#mysticGrad)" stroke-width="4" stroke-linecap="round"/><path d="M 0 -10 Q -20 -15 -10 -25 Q 5 -20 0 -10 Z" fill="url(#mysticGrad)"/><path d="M -15 15 Q -30 25 -25 35 Q -10 30 -15 15 Z" fill="url(#mysticGrad)"/><path d="M 15 -35 Q 30 -45 35 -30 Q 20 -20 15 -35 Z" fill="url(#mysticGrad)"/><path d="M 30 -10 Q 30 0 40 0 Q 30 0 30 10 Q 30 0 20 0 Q 30 0 30 -10 Z" fill="#ffffff" opacity="0.8"/> <path d="M -30 -38 Q -30 -30 -22 -30 Q -30 -30 -30 -22 Q -30 -30 -38 -30 Q -30 -30 -30 -38 Z" fill="#ffffff" opacity="0.8"/>
+    <ellipse cx="8" cy="0" rx="52" ry="24" transform="rotate(-68 8 0)" fill="url(#goldGrad)"/><path d="M 5 50 C -40 20 40 -20 5 -55" fill="none" stroke="url(#mysticGrad)" stroke-width="4" stroke-linecap="round"/><path d="M 0 -10 Q -20 -15 -10 -25 Q 5 -20 0 -10 Z" fill="url(#mysticGrad)"/><path d="M -15 15 Q -30 25 -25 35 Q -10 30 -15 15 Z" fill="url(#mysticGrad)"/><path d="M 15 -35 Q 30 -45 35 -30 Q 20 -20 15 -35 Z" fill="url(#mysticGrad)"/><path d="M 30 -10 Q 30 0 40 0 Q 30 0 30 10 Q 30 0 20 0 Q 30 0 30 -10 Z" fill="#ffffff" opacity="0.8"/> <path d="M -30 -38 Q -30 -30 -22 -30 Q -30 -30 -30 -22 Q -30 -30 -38 -30 Q -30 -30 -30 -38 Z" fill="#ffffff" opacity="0.8"/>
   </g>
 </svg>
