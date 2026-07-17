@@ -23,50 +23,50 @@ export default function SimpleResultCard({
   return (
     <div className="rounded-2xl p-4" style={{ backgroundColor: "rgba(255,255,255,0.85)" }}>
       <div
-        className="rounded-2xl px-6 py-4 text-center mb-2"
+        className="rounded-2xl px-6 py-3 text-center mb-1.5"
         style={{ background: "linear-gradient(135deg, #6d28d9, #3b1d63)" }}
       >
-        <p className="text-white/80 text-xs mb-1">あなたを守る神様は…</p>
+        <p className="text-white/80 text-sm mb-2">あなたを守る神様は…</p>
         {imageFailed ? (
-          <p className="text-4xl mb-2">{result.emoji}</p>
+          <p className="text-5xl mb-2">{result.emoji}</p>
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={withBasePath(result.image)}
             alt={result.title}
             onError={onImageError}
-            className="w-36 h-[216px] object-cover object-top rounded-xl mx-auto mb-2 shadow-lg ring-2 ring-white/30"
+            className="w-40 aspect-[2/3] object-cover rounded-xl mx-auto mb-2 shadow-lg ring-2 ring-white/30"
           />
         )}
-        <h2 className="text-xl font-bold text-white mb-1">{result.title}</h2>
-        <p className="text-white/60 text-[11px] mb-2">{result.reading}</p>
-        <div className="inline-flex items-center gap-1.5 bg-white/20 rounded-full px-3 py-1 text-xs font-medium text-white">
+        <h2 className="text-2xl font-bold text-white mb-1">{result.title}</h2>
+        <p className="text-white/60 text-sm mb-2">{result.reading}</p>
+        <div className="inline-flex items-center gap-1.5 bg-white/20 rounded-full px-3 py-1 text-sm font-medium text-white">
           今のモード:{typeInfo.emoji}
           {typeInfo.label}
         </div>
       </div>
 
-      <div className="border-2 rounded-xl px-5 py-3 mb-2" style={{ borderColor: BORDER_COLOR }}>
-        <h3 className="text-xs font-bold text-gray-800 mb-1">🌟 本質</h3>
-        <p className="text-[11px] text-gray-600 leading-snug">{result.essence}</p>
+      <div className="border-2 rounded-xl px-5 py-2 mb-1.5" style={{ borderColor: BORDER_COLOR }}>
+        <h3 className="text-sm font-bold text-gray-800 mb-1">🌟 本質</h3>
+        <p className="text-xs text-gray-600 leading-snug">{result.essence}</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 mb-2">
-        <div className="border-2 rounded-xl px-4 py-3" style={{ borderColor: BORDER_COLOR }}>
-          <h3 className="text-xs font-bold text-gray-800 mb-1">💪 強み</h3>
+      <div className="grid grid-cols-2 gap-2 mb-1.5">
+        <div className="border-2 rounded-xl px-3 py-2" style={{ borderColor: BORDER_COLOR }}>
+          <h3 className="text-sm font-bold text-gray-800 mb-1">💪 強み</h3>
           <ul className="space-y-0.5">
             {result.strengths.map((s, i) => (
-              <li key={i} className="text-[11px] text-gray-600">
+              <li key={i} className="text-xs text-gray-600">
                 ・{s}
               </li>
             ))}
           </ul>
         </div>
-        <div className="border-2 rounded-xl px-4 py-3" style={{ borderColor: BORDER_COLOR }}>
-          <h3 className="text-xs font-bold text-gray-800 mb-1">⚠️ 注意点</h3>
+        <div className="border-2 rounded-xl px-3 py-2" style={{ borderColor: BORDER_COLOR }}>
+          <h3 className="text-sm font-bold text-gray-800 mb-1">⚠️ 注意点</h3>
           <ul className="space-y-0.5">
             {result.weaknesses.map((w, i) => (
-              <li key={i} className="text-[11px] text-gray-600">
+              <li key={i} className="text-xs text-gray-600">
                 ・{w}
               </li>
             ))}
@@ -74,40 +74,40 @@ export default function SimpleResultCard({
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 mb-2">
-        <div className="border-2 rounded-xl px-4 py-3" style={{ borderColor: BORDER_COLOR }}>
-          <h3 className="text-xs font-bold text-gray-800 mb-1">💕 恋愛傾向</h3>
-          <p className="text-[11px] text-gray-600 leading-snug">{result.loveStyle}</p>
+      <div className="grid grid-cols-2 gap-2 mb-1.5">
+        <div className="border-2 rounded-xl px-3 py-2" style={{ borderColor: BORDER_COLOR }}>
+          <h3 className="text-sm font-bold text-gray-800 mb-1">💕 恋愛傾向</h3>
+          <p className="text-xs text-gray-600 leading-snug">{result.loveStyle}</p>
         </div>
-        <div className="border-2 rounded-xl px-4 py-3" style={{ borderColor: BORDER_COLOR }}>
-          <h3 className="text-xs font-bold text-gray-800 mb-1">💼 仕事スタイル</h3>
-          <p className="text-[11px] text-gray-600 leading-snug">{result.workStyle}</p>
+        <div className="border-2 rounded-xl px-3 py-2" style={{ borderColor: BORDER_COLOR }}>
+          <h3 className="text-sm font-bold text-gray-800 mb-1">💼 仕事スタイル</h3>
+          <p className="text-xs text-gray-600 leading-snug">{result.workStyle}</p>
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-3 mb-2 text-center">
-        <div className="border-2 rounded-xl px-3 py-3" style={{ borderColor: BORDER_COLOR }}>
-          <h3 className="text-xs font-bold text-gray-800 mb-1">🤝 相性</h3>
-          <p className="text-[11px] text-gray-600">{result.compatibleWith}</p>
+      <div className="grid grid-cols-3 gap-2 mb-1.5 text-center">
+        <div className="border-2 rounded-xl px-2.5 py-2" style={{ borderColor: BORDER_COLOR }}>
+          <h3 className="text-sm font-bold text-gray-800 mb-1">🤝 相性</h3>
+          <p className="text-xs text-gray-600">{result.compatibleWith}</p>
         </div>
-        <div className="border-2 rounded-xl px-3 py-3" style={{ borderColor: BORDER_COLOR }}>
-          <h3 className="text-xs font-bold text-gray-800 mb-1">🍀 アイテム</h3>
-          <p className="text-[11px] text-gray-600">{result.luckyItem}</p>
+        <div className="border-2 rounded-xl px-2.5 py-2" style={{ borderColor: BORDER_COLOR }}>
+          <h3 className="text-sm font-bold text-gray-800 mb-1">🍀 アイテム</h3>
+          <p className="text-xs text-gray-600">{result.luckyItem}</p>
         </div>
-        <div className="border-2 rounded-xl px-3 py-3" style={{ borderColor: BORDER_COLOR }}>
-          <h3 className="text-xs font-bold text-gray-800 mb-1">🎨 カラー</h3>
-          <p className="text-[11px] text-gray-600">{result.luckyColor}</p>
+        <div className="border-2 rounded-xl px-2.5 py-2" style={{ borderColor: BORDER_COLOR }}>
+          <h3 className="text-sm font-bold text-gray-800 mb-1">🎨 カラー</h3>
+          <p className="text-xs text-gray-600">{result.luckyColor}</p>
         </div>
       </div>
 
       <div
-        className="rounded-xl px-5 py-3 border-2"
+        className="rounded-xl px-4 py-2.5 border-2"
         style={{ borderColor: "#6d28d9", backgroundColor: "#f5f0ff" }}
       >
-        <h3 className="text-xs font-bold mb-1" style={{ color: "#6d28d9" }}>
+        <h3 className="text-sm font-bold mb-1" style={{ color: "#6d28d9" }}>
           ⏳ 今の過ごし方のヒント
         </h3>
-        <p className="text-[11px] text-gray-700 leading-snug">{result.luckyAction}</p>
+        <p className="text-xs text-gray-700 leading-snug">{result.luckyAction}</p>
       </div>
     </div>
   );

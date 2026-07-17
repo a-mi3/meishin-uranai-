@@ -19,7 +19,7 @@ export default function PrintSimpleResultClient({
   return (
     <div style={{ backgroundColor: "#faf8ff" }}>
       <PrintFrame>
-        <div className="px-6 py-2 max-w-xl mx-auto" style={{ minHeight: "970px" }}>
+        <div className="px-6 py-2 max-w-xl mx-auto" style={{ minHeight: "1000px" }}>
           <SimpleResultCard
             result={result}
             typeInfo={typeInfo}
