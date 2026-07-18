@@ -23,7 +23,7 @@ function Banner({ src }: { src: string | undefined }) {
     <img
       src={withBasePath(src)}
       alt=""
-      className="w-full aspect-video object-cover rounded-xl mb-4 shadow"
+      className="w-1/2 mx-auto aspect-video object-cover rounded-xl mb-3 shadow"
     />
   );
 }
@@ -64,7 +64,7 @@ export default function ResultCard({
         >
           <Icon name="advice" className="w-5 h-5" /> あなたへの詳しいアドバイス
         </h3>
-        <div className="space-y-5">
+        <div className="space-y-4">
           <Banner src={illustrations[1]} />
           <div>
             <h4 className="text-sm font-bold text-gray-800 mb-1.5">{today.title}</h4>
@@ -101,8 +101,8 @@ export default function ResultCard({
         </div>
       </div>
 
-      {/* 最終ページ：まとめ＋TOP画像＋QRコード */}
-      <PrintFrame className="print-page-break">
+      {/* 最終ページ：まとめ＋TOP画像＋QRコード（改ページなしで続ける） */}
+      <PrintFrame>
         <div
           className="rounded-2xl p-6 sm:p-7 text-center max-w-xl mx-auto"
           style={{ backgroundColor: "rgba(255,255,255,0.85)" }}
