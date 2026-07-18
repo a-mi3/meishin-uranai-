@@ -16,15 +16,17 @@ type ResultCardProps = {
   onImageError: () => void;
 };
 
-function Banner({ src }: { src: string | undefined }) {
+function Banner({
+  src,
+  className = "w-1/2 mx-auto aspect-video object-cover rounded-xl mb-3 shadow",
+}: {
+  src: string | undefined;
+  className?: string;
+}) {
   if (!src) return null;
   return (
     // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={withBasePath(src)}
-      alt=""
-      className="w-1/2 mx-auto aspect-video object-cover rounded-xl mb-3 shadow"
-    />
+    <img src={withBasePath(src)} alt="" className={className} />
   );
 }
 
@@ -99,6 +101,10 @@ export default function ResultCard({
               {breakAtSentences(actionPlan.body)}
             </p>
           </div>
+          <Banner
+            src={illustrations[5]}
+            className="w-1/4 mx-auto aspect-video object-cover rounded-xl shadow"
+          />
         </div>
       </div>
 
