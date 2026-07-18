@@ -45,65 +45,66 @@ export type Question = {
 
 // シナリオ形式の設問。選択肢を読んだだけではどのタイプに繋がるか
 // わかりにくいよう、性格を直接表す言葉(情熱的/好奇心旺盛 等)は避けている。
+// 一つの神社参拝の流れに沿った6場面(鳥居→参道→手水舎→賽銭/鈴→祈り→帰り道)。
 export const QUESTIONS: Question[] = [
   {
     key: "q1",
-    label: "旅先で、予定になかった小さなお祭りに出くわした。一番惹かれる過ごし方は?",
+    label: "神社の鳥居の前に立った。一歩を踏み出す瞬間の気持ちは?",
     options: [
-      { text: "太鼓や踊りの輪に混ざって一緒に楽しむ", type: "challenger" },
-      { text: "露店を一軒ずつ覗いて、掘り出し物を探す", type: "seeker" },
-      { text: "近くにいた地元の人に、祭りの由来を尋ねてみる", type: "harmonizer" },
-      { text: "少し離れた場所から、祭り全体をゆっくり眺める", type: "guardian" },
+      { text: "迷わず、勢いよく踏み出す", type: "challenger" },
+      { text: "鳥居の形や由来が気になり、じっくり見上げてから進む", type: "seeker" },
+      { text: "一緒に来た人と顔を見合わせ、微笑んでから進む", type: "harmonizer" },
+      { text: "一礼して、心を静めてから静かに進む", type: "guardian" },
     ],
   },
   {
     key: "q2",
-    label: "新しいチームに配属された初日。休憩時間に、自然としてしまうことは?",
+    label: "参道を歩いていると、自然と目や耳が向くのは?",
     options: [
-      { text: "気になった人にこちらから話しかけてみる", type: "challenger" },
-      { text: "メンバーの得意分野や役割をさりげなく観察する", type: "seeker" },
-      { text: "隣の席の人に「よろしくお願いします」と一言添える", type: "harmonizer" },
-      { text: "まずは机の周りを整えて、落ち着ける環境をつくる", type: "guardian" },
+      { text: "木漏れ日がきらめく先、まだ見ぬ本殿の方向", type: "challenger" },
+      { text: "石畳の模様や、脇に並ぶ灯籠の年季", type: "seeker" },
+      { text: "すれ違う参拝者と交わす、小さな会釈", type: "harmonizer" },
+      { text: "玉砂利を踏む音と、足元のリズム", type: "guardian" },
     ],
   },
   {
     key: "q3",
-    label: "誕生日に、友人からちょっと意外なプレゼントをもらった。まず頭に浮かぶのは?",
+    label: "手水舎で柄杓を手に取った。水を含んだ瞬間、まず感じるのは?",
     options: [
-      { text: "「早く使ってみたい」というワクワク感", type: "challenger" },
-      { text: "「なんでこれを選んでくれたんだろう」という興味", type: "seeker" },
-      { text: "「私のことを考えてくれたんだな」という嬉しさ", type: "harmonizer" },
-      { text: "「大事にしまっておこう」という気持ち", type: "guardian" },
+      { text: "水の冷たさにハッとして、体温が上がる感覚", type: "challenger" },
+      { text: "作法の順番を思い出しながら、丁寧になぞる意識", type: "seeker" },
+      { text: "隣で清めている人のペースに、なんとなく合わせる感覚", type: "harmonizer" },
+      { text: "一つ一つの動作を、急がずゆっくり行う落ち着き", type: "guardian" },
     ],
   },
   {
     key: "q4",
-    label: "締め切り直前に、想定外のトラブルが発生した。体がまず動くのは?",
+    label: "賽銭箱の前に立ち、賽銭を入れて鈴を鳴らす。その所作は?",
     options: [
-      { text: "とっさに代替案を考え、すぐ手を動かし始める", type: "challenger" },
-      { text: "まず何が原因なのか、状況を整理して調べる", type: "seeker" },
-      { text: "周りに「大丈夫?」と声をかけながら分担を決める", type: "harmonizer" },
-      { text: "一呼吸置いて、落ち着いてから対応を考える", type: "guardian" },
+      { text: "迷いなく、思い切りよく鈴を鳴らす", type: "challenger" },
+      { text: "鈴の音の響き方や余韻に、耳を澄ませる", type: "seeker" },
+      { text: "大切な人の顔を思い浮かべながら、そっと入れる", type: "harmonizer" },
+      { text: "両手でそっと、丁寧に賽銭を入れる", type: "guardian" },
     ],
   },
   {
     key: "q5",
-    label: "何もない休日の朝、目が覚めて最初に浮かぶ気持ちは?",
+    label: "目を閉じて手を合わせた瞬間、心に浮かぶのは?",
     options: [
-      { text: "「さて、今日は何しよう」というワクワク感", type: "challenger" },
-      { text: "「あれ、調べてみようかな」という好奇心", type: "seeker" },
-      { text: "「誰か誘ってみようかな」という気分", type: "harmonizer" },
-      { text: "「このままゆっくりしていたい」という安心感", type: "guardian" },
+      { text: "「よし、やってやる」という前向きな決意", type: "challenger" },
+      { text: "「今の自分に必要なものは何だろう」という問い", type: "seeker" },
+      { text: "支えてくれる人たちへの感謝の気持ち", type: "harmonizer" },
+      { text: "何も願わず、ただ静かに手を合わせる無心の時間", type: "guardian" },
     ],
   },
   {
     key: "q6",
-    label: "映画館で、隣の人が明らかに感動して静かに泣いている。あなたはどうする?",
+    label: "参拝を終え、鳥居を振り返った。最後に心に残る景色は?",
     options: [
-      { text: "気づかないふりをしつつも、その熱量に感化される", type: "challenger" },
-      { text: "「何がそんなに刺さったんだろう」と気になって考察する", type: "seeker" },
-      { text: "そっとティッシュを差し出すなど、さりげなく気遣う", type: "harmonizer" },
-      { text: "自分の世界に集中したまま、静かにその空気を尊重する", type: "guardian" },
+      { text: "遠くまで続く、空の広がり", type: "challenger" },
+      { text: "気になった場所を、もう一度目で辿る自分", type: "seeker" },
+      { text: "一緒に来た人の、ほっとした横顔", type: "harmonizer" },
+      { text: "静まり返った境内の、澄んだ空気", type: "guardian" },
     ],
   },
 ];
