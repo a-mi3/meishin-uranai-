@@ -457,6 +457,7 @@ export const GODS: God[] = [
       "/gods/illustrations/soukyuushin-02-advice1.png",
       "/gods/illustrations/soukyuushin-03-advice2.png",
       "/gods/illustrations/soukyuushin-04-advice3.png",
+      "/gods/illustrations/soukyuushin-05-lead.png",
     ],
   },
   {

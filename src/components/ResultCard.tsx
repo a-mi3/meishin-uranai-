@@ -64,6 +64,7 @@ export default function ResultCard({
         >
           <Icon name="advice" className="w-5 h-5" /> あなたへの詳しいアドバイス
         </h3>
+        <Banner src={illustrations[4]} />
         <div className="space-y-4">
           <Banner src={illustrations[1]} />
           <div>
