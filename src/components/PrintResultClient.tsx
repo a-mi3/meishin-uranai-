@@ -17,14 +17,12 @@ export default function PrintResultClient({
 
   return (
     <div style={{ backgroundColor: "#faf8ff" }}>
-      <div className="max-w-xl mx-auto">
-        <ResultCard
-          result={result}
-          typeInfo={typeInfo}
-          imageFailed={imageFailed}
-          onImageError={() => setImageFailed(true)}
-        />
-      </div>
+      <ResultCard
+        result={result}
+        typeInfo={typeInfo}
+        imageFailed={imageFailed}
+        onImageError={() => setImageFailed(true)}
+      />
     </div>
   );
 }
