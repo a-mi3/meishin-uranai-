@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { FortuneResult } from "@/lib/fortune";
 import SimpleResultCard from "@/components/SimpleResultCard";
 import PrintFrame from "@/components/PrintFrame";
+import { withBasePath } from "@/lib/basePath";
 
 type TypeInfo = { emoji: string; label: string };
 
@@ -31,6 +32,12 @@ export default function PrintSimpleResultClient({
           />
         </div>
       </PrintFrame>
+
+      {/* 裏面：両面印刷用の裏表紙 */}
+      <div className="print-page-break">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={withBasePath("/back-cover.png")} alt="" className="w-full h-auto block" />
+      </div>
     </div>
   );
 }
