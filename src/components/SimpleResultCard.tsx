@@ -30,6 +30,14 @@ export default function SimpleResultCard({
         <p className="text-white/80 text-sm mb-2">あなたを守る神様は…</p>
         {imageFailed ? (
           <p className="text-5xl mb-2">{result.emoji}</p>
+        ) : result.heroImageWide ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={withBasePath(result.heroImageWide)}
+            alt={result.title}
+            onError={onImageError}
+            className="w-full h-auto rounded-xl mb-2 shadow-lg ring-2 ring-white/30"
+          />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img

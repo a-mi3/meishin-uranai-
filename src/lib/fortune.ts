@@ -159,6 +159,9 @@ export type God = {
   luckyItem: string;
   imagePrompt: string;
   image: string;
+  // カードのヒーロー部分用の横長画像(1920x500目安)。指定があればこちらを
+  // 優先表示し、なければ image を縦長クロップして表示する。
+  heroImageWide?: string;
   // 印刷用ページの各セクションに添える横長バナー(1376x768目安)。
   // [プロフィールA, プロフィールB, アドバイス1, アドバイス2, アドバイス3]の順。
   // 未整備の神様はundefinedのままでよい(該当ページは画像なしで表示される)。
@@ -502,6 +505,7 @@ export const GODS: God[] = [
     luckyColor: "オーロラカラー",
     luckyItem: "万華鏡",
     image: "/gods/kageroushin.png",
+    heroImageWide: "/gods/kageroushin-wide.png",
     imagePrompt:
       "full-body shot, entire body visible from head to toe, wide shot, A mysterious shapeshifting Japanese goddess, ethereal beautiful woman, Goddess of the Shimmering Mirage, standing full-length, ambiguous fluid silhouette, robes in flowing aurora-like iridescent colors shifting between hues, wavering heat-haze visual distortion effect, holding a small kaleidoscope, dreamlike surreal atmosphere, aurora multicolor palette, Japanese fantasy goddess portrait, elegant flowing robes with intricate patterns, mystical atmosphere, soft cinematic lighting, delicate linework, digital painting, highly detailed, trending on artstation --ar 2:3 --niji 6",
     illustrations: [
@@ -633,6 +637,7 @@ export type FortuneResult = {
   reading: string;
   emoji: string;
   image: string;
+  heroImageWide?: string;
   illustrations?: string[];
   essence: string;
   strengths: string[];
@@ -696,6 +701,7 @@ export function buildFortuneResultFromIndices(
     reading: `${god.reading} / ${phase.reading}`,
     emoji: god.emoji,
     image: god.image,
+    heroImageWide: god.heroImageWide,
     illustrations: god.illustrations,
     essence: `${god.personality} ${phase.description}`,
     strengths: [...god.strengths, MODE_STRENGTH[personalityType]],
