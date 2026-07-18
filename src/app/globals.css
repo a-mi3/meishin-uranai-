@@ -33,4 +33,9 @@ body {
     break-before: page;
     page-break-before: always;
   }
+
+  .print-avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
 }

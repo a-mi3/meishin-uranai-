@@ -101,8 +101,8 @@ export default function ResultCard({
         </div>
       </div>
 
-      {/* 最終ページ：まとめ＋TOP画像＋QRコード（改ページなしで続ける） */}
-      <PrintFrame>
+      {/* 最終ページ：まとめ＋TOP画像＋QRコード（改ページなしで続けるが、途中では割れないようにする） */}
+      <PrintFrame className="print-avoid-break">
         <div
           className="rounded-2xl p-6 sm:p-7 text-center max-w-xl mx-auto"
           style={{ backgroundColor: "rgba(255,255,255,0.85)" }}
