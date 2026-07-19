@@ -18,7 +18,7 @@ type ResultCardProps = {
 
 function Banner({
   src,
-  className = "w-1/2 mx-auto aspect-video object-cover rounded-xl mb-3 shadow",
+  className = "w-2/5 mx-auto aspect-video object-cover rounded-xl mb-2 shadow",
 }: {
   src: string | undefined;
   className?: string;

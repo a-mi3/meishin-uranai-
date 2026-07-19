@@ -205,6 +205,7 @@ export const GODS: God[] = [
       "/gods/illustrations/gyoutenshin-02-advice1.png",
       "/gods/illustrations/gyoutenshin-03-advice2.png",
       "/gods/illustrations/gyoutenshin-04-advice3.png",
+      "/gods/illustrations/gyoutenshin-05-lead.png",
     ],
   },
   {
@@ -233,6 +234,7 @@ export const GODS: God[] = [
       "/gods/illustrations/shippuushin-02-advice1.png",
       "/gods/illustrations/shippuushin-03-advice2.png",
       "/gods/illustrations/shippuushin-04-advice3.png",
+      "/gods/illustrations/shippuushin-05-lead.png",
     ],
   },
   {
@@ -261,6 +263,7 @@ export const GODS: God[] = [
       "/gods/illustrations/daichishin-02-advice1.png",
       "/gods/illustrations/daichishin-03-advice2.png",
       "/gods/illustrations/daichishin-04-advice3.png",
+      "/gods/illustrations/daichishin-05-lead.png",
     ],
   },
   {
@@ -289,6 +292,7 @@ export const GODS: God[] = [
       "/gods/illustrations/seiryuushin-02-advice1.png",
       "/gods/illustrations/seiryuushin-03-advice2.png",
       "/gods/illustrations/seiryuushin-04-advice3.png",
+      "/gods/illustrations/seiryuushin-05-lead.png",
     ],
   },
   {
@@ -317,6 +321,7 @@ export const GODS: God[] = [
       "/gods/illustrations/toukashin-02-advice1.png",
       "/gods/illustrations/toukashin-03-advice2.png",
       "/gods/illustrations/toukashin-04-advice3.png",
+      "/gods/illustrations/toukashin-05-lead.png",
     ],
   },
   {
@@ -345,6 +350,7 @@ export const GODS: God[] = [
       "/gods/illustrations/shinryokushin-02-advice1.png",
       "/gods/illustrations/shinryokushin-03-advice2.png",
       "/gods/illustrations/shinryokushin-04-advice3.png",
+      "/gods/illustrations/shinryokushin-05-lead.png",
     ],
   },
   {
@@ -401,6 +407,7 @@ export const GODS: God[] = [
       "/gods/illustrations/ougonshin-02-advice1.png",
       "/gods/illustrations/ougonshin-03-advice2.png",
       "/gods/illustrations/ougonshin-04-advice3.png",
+      "/gods/illustrations/ougonshin-05-lead.png",
     ],
   },
   {
@@ -429,6 +436,7 @@ export const GODS: God[] = [
       "/gods/illustrations/hakuginshin-02-advice1.png",
       "/gods/illustrations/hakuginshin-03-advice2.png",
       "/gods/illustrations/hakuginshin-04-advice3.png",
+      "/gods/illustrations/hakuginshin-05-lead.png",
     ],
   },
   {
@@ -487,6 +495,7 @@ export const GODS: God[] = [
       "/gods/illustrations/seijakushin-02-advice1.png",
       "/gods/illustrations/seijakushin-03-advice2.png",
       "/gods/illustrations/seijakushin-04-advice3.png",
+      "/gods/illustrations/seijakushin-05-lead.png",
     ],
   },
   {
