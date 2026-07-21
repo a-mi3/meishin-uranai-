@@ -12,6 +12,7 @@ import {
 import FreeResultPreview from "@/components/FreeResultPreview";
 import { saveLastResult } from "@/lib/lastResultStorage";
 import { withBasePath } from "@/lib/basePath";
+import { initLiff, shareViaLine } from "@/lib/liffClient";
 
 type Stage = "intro" | "quiz" | "result";
 
@@ -100,6 +101,10 @@ export default function Home() {
   const typeInfo = personalityType ? TYPE_INFO[personalityType] : null;
 
   useEffect(() => {
+    initLiff();
+  }, []);
+
+  useEffect(() => {
     setImageFailed(false);
   }, [result?.image]);
 
@@ -112,6 +117,9 @@ export default function Home() {
   const shareResult = async () => {
     if (!result || !typeInfo) return;
     const text = `【守護女神占い】\n私は「${result.emoji}${result.title}」タイプでした!\n(気分のモード:${typeInfo.emoji}${typeInfo.label})\n\n${result.essence}`;
+    if (await shareViaLine(text)) {
+      return;
+    }
     if (navigator.share) {
       try {
         await navigator.share({ title: "守護女神占い", text });

@@ -7,3 +7,6 @@
 // reload the fortune quiz.
 export const PURCHASE_URL = "https://uranai.see-en.net/cart/?add-to-cart=16";
 export const PURCHASE_PRICE_LABEL = "¥1,000";
+
+// LIFF app: 守護女神占い LIFF (LINE Login channel, endpoint https://uranai.see-en.net/app/)
+export const LIFF_ID: string = "2010783988-Oitaw9XW";
