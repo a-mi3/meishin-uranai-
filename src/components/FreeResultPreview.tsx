@@ -64,6 +64,7 @@ export default function FreeResultPreview({
         </p>
         <a
           href={PURCHASE_URL}
+          target="_top"
           className="inline-block w-full py-3.5 rounded-full text-white font-bold hover:opacity-90 transition shadow-lg"
           style={{ backgroundColor: "#6d28d9" }}
         >
