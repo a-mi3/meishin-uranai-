@@ -32,7 +32,7 @@ function Banner({
 
 function BackPage() {
   return (
-    <div className="print-page-break">
+    <div className="print-page-break hidden print:block">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={withBasePath("/back-page-detail.png")} alt="" className="w-full h-auto block" />
     </div>
