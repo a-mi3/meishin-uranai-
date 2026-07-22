@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import type { FortuneResult } from "@/lib/fortune";
 import { PURCHASE_URL, PURCHASE_PRICE_LABEL } from "@/lib/config";
 import { withBasePath } from "@/lib/basePath";
@@ -25,22 +24,25 @@ export default function FreeResultPreview({
   // session cookie across navigation, which breaks add-to-cart/checkout.
   // Route the purchase link through liff.openWindow(..., external: true)
   // to open it in the device's actual browser instead when inside LINE.
-  // isInLineClient() is resolved on mount (not inside the click handler)
-  // because preventDefault() only stops the link's default navigation if
-  // called synchronously within the click handler — awaiting first lets
-  // the browser's own navigation fire before we get a chance to cancel it,
-  // so the in-app-browser nav and liff.openWindow() both fired and
-  // double-added the item to the cart.
-  const [inLine, setInLine] = useState(false);
-  useEffect(() => {
-    isInLineClient().then(setInLine);
-  }, []);
-
+  //
+  // preventDefault() is called unconditionally and synchronously in the
+  // click handler (the only place it's guaranteed to still cancel the
+  // link's default navigation), then we resolve isInLineClient() and
+  // navigate manually. Gating preventDefault() on an isInLineClient()
+  // result resolved earlier (e.g. cached in state from a mount-time
+  // effect) opened a race: if the user tapped the purchase button before
+  // that check finished, the link's default in-app-browser navigation
+  // fired instead, reintroducing the cookie problem this fix exists for.
   const handlePurchaseClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!inLine) return;
     e.preventDefault();
-    import("@line/liff").then(({ default: liff }) => {
-      liff.openWindow({ url: PURCHASE_URL, external: true });
+    isInLineClient().then((inLine) => {
+      if (inLine) {
+        import("@line/liff").then(({ default: liff }) => {
+          liff.openWindow({ url: PURCHASE_URL, external: true });
+        });
+      } else {
+        window.top!.location.href = PURCHASE_URL;
+      }
     });
   };
 
