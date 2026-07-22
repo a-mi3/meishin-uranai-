@@ -3,6 +3,7 @@
 import type { FortuneResult } from "@/lib/fortune";
 import { PURCHASE_URL, PURCHASE_PRICE_LABEL } from "@/lib/config";
 import { withBasePath } from "@/lib/basePath";
+import { isInLineClient } from "@/lib/liffClient";
 
 type TypeInfo = { emoji: string; label: string };
 
@@ -19,6 +20,17 @@ export default function FreeResultPreview({
   imageFailed,
   onImageError,
 }: FreeResultPreviewProps) {
+  // LINE's in-app browser (LIFF) doesn't reliably persist the WooCommerce
+  // session cookie across navigation, which breaks add-to-cart/checkout.
+  // Route the purchase link through liff.openWindow(..., external: true)
+  // to open it in the device's actual browser instead when inside LINE.
+  const handlePurchaseClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!(await isInLineClient())) return;
+    e.preventDefault();
+    const liff = (await import("@line/liff")).default;
+    liff.openWindow({ url: PURCHASE_URL, external: true });
+  };
+
   return (
     <div>
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-5">
@@ -65,6 +77,7 @@ export default function FreeResultPreview({
         <a
           href={PURCHASE_URL}
           target="_top"
+          onClick={handlePurchaseClick}
           className="inline-block w-full py-3.5 rounded-full text-white font-bold hover:opacity-90 transition shadow-lg"
           style={{ backgroundColor: "#6d28d9" }}
         >
