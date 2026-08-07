@@ -1,10 +1,13 @@
 const STORAGE_KEY = "uranai_last_result";
 
-export type LastResult = {
-  godIndex: number;
-  phaseIndex: number;
-  mode: string;
-};
+export type LastResult =
+  | { kind: "meishin"; godIndex: number; phaseIndex: number; mode: string }
+  | {
+      kind: "astrology";
+      sunIndex: number;
+      moonIndex: number;
+      risingIndex: number | null;
+    };
 
 export function saveLastResult(result: LastResult) {
   if (typeof window === "undefined") return;
@@ -21,7 +24,12 @@ export function getLastResult(): LastResult | null {
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
-    return JSON.parse(raw) as LastResult;
+    const parsed = JSON.parse(raw) as Partial<LastResult>;
+    // 旧形式(kindフィールドが無い守護女神占いの結果)との互換性を保つ
+    if (!parsed.kind && "godIndex" in parsed) {
+      return { ...parsed, kind: "meishin" } as LastResult;
+    }
+    return parsed as LastResult;
   } catch {
     return null;
   }

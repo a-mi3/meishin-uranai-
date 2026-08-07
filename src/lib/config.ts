@@ -10,5 +10,11 @@
 export const PURCHASE_URL = "https://uranai.see-en.net/purchase/";
 export const PURCHASE_PRICE_LABEL = "¥1,000〜";
 
+// TODO: 本格占星術鑑定書用のWooCommerce商品・購入導線ページがまだ無いため、
+// 暫定的に守護女神占いと同じ購入選択ページを指している。商品公開後に
+// 専用URL・価格ラベルへ差し替えること。
+export const ASTROLOGY_PURCHASE_URL = "https://uranai.see-en.net/purchase/";
+export const ASTROLOGY_PURCHASE_PRICE_LABEL = "¥1,800〜";
+
 // LIFF app: 守護女神占い LIFF (LINE Login channel, endpoint https://uranai.see-en.net/app/)
 export const LIFF_ID: string = "2010783988-Oitaw9XW";

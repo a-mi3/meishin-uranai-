@@ -111,7 +111,7 @@ export default function Home() {
   useEffect(() => {
     if (!birthDate || !personalityType) return;
     const { godIndex, phaseIndex } = getGodAndPhase(birthDate);
-    saveLastResult({ godIndex, phaseIndex, mode: personalityType });
+    saveLastResult({ kind: "meishin", godIndex, phaseIndex, mode: personalityType });
   }, [birthDate, personalityType]);
 
   const shareResult = async () => {

@@ -13,6 +13,14 @@ export default function UnlockPage() {
       setNotFound(true);
       return;
     }
+    if (last.kind === "astrology") {
+      const { sunIndex, moonIndex, risingIndex } = last;
+      const risingSegment = risingIndex === null ? "unknown" : String(risingIndex);
+      window.location.replace(
+        withBasePath(`/print-astrology/${sunIndex}/${moonIndex}/${risingSegment}/`)
+      );
+      return;
+    }
     const { godIndex, phaseIndex, mode } = last;
     window.location.replace(
       withBasePath(`/print/${godIndex}/${phaseIndex}/${mode}/`)
