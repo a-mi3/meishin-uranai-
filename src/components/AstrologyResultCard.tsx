@@ -76,6 +76,8 @@ function SignSection({
   image,
   title,
   body,
+  title2,
+  body2,
 }: {
   eyebrow: string;
   emoji: string;
@@ -83,6 +85,8 @@ function SignSection({
   image: string;
   title: string;
   body: string;
+  title2: string;
+  body2: string;
 }) {
   return (
     <div>
@@ -99,13 +103,17 @@ function SignSection({
       <h4 className="text-sm font-bold mb-1.5" style={{ color: ACCENT }}>
         {title}
       </h4>
-      <p className="text-sm text-gray-700 leading-relaxed">{body}</p>
+      <p className="text-sm text-gray-700 leading-relaxed mb-4">{body}</p>
+      <h4 className="text-sm font-bold mb-1.5" style={{ color: ACCENT }}>
+        {title2}
+      </h4>
+      <p className="text-sm text-gray-700 leading-relaxed">{body2}</p>
     </div>
   );
 }
 
 export default function AstrologyResultCard({ result }: { result: AstrologyResult }) {
-  const { sun, moon, rising, sunText, moonText, risingText } = result;
+  const { sun, moon, rising, sunText, moonText, risingText, synergy } = result;
 
   return (
     <div className="print-page">
@@ -158,6 +166,8 @@ export default function AstrologyResultCard({ result }: { result: AstrologyResul
           image={sun.image}
           title={sunText.title}
           body={sunText.body}
+          title2={sunText.title2}
+          body2={sunText.body2}
         />
       </div>
 
@@ -170,6 +180,8 @@ export default function AstrologyResultCard({ result }: { result: AstrologyResul
           image={moon.image}
           title={moonText.title}
           body={moonText.body}
+          title2={moonText.title2}
+          body2={moonText.body2}
         />
       </div>
 
@@ -183,6 +195,8 @@ export default function AstrologyResultCard({ result }: { result: AstrologyResul
             image={rising.image}
             title={risingText.title}
             body={risingText.body}
+            title2={risingText.title2}
+            body2={risingText.body2}
           />
         ) : (
           <div>
@@ -197,7 +211,29 @@ export default function AstrologyResultCard({ result }: { result: AstrologyResul
         )}
       </div>
 
-      {/* ページ5: まとめ */}
+      {/* ページ5: 3天体のシナジー診断 */}
+      <div className="print-page-break max-w-xl mx-auto px-6 py-8">
+        <p className="text-[11px] text-gray-400 mb-1">3天体シナジー診断</p>
+        <h4 className="text-base font-bold text-gray-800 mb-4">
+          太陽・月・上昇はどう影響し合っているか
+        </h4>
+        <div className="mb-4">
+          <h5 className="text-sm font-bold mb-1.5" style={{ color: ACCENT }}>
+            太陽×月：本音の性格と感情の動き方
+          </h5>
+          <p className="text-sm text-gray-700 leading-relaxed">{synergy.sunMoon}</p>
+        </div>
+        {synergy.sunRising && (
+          <div>
+            <h5 className="text-sm font-bold mb-1.5" style={{ color: ACCENT }}>
+              太陽×上昇：内面の本質と外から見える顔
+            </h5>
+            <p className="text-sm text-gray-700 leading-relaxed">{synergy.sunRising}</p>
+          </div>
+        )}
+      </div>
+
+      {/* ページ6: まとめ */}
       <div className="print-page-break print-avoid-break max-w-xl mx-auto px-6 py-8">
         <div
           className="rounded-2xl p-6 sm:p-7 text-center"
