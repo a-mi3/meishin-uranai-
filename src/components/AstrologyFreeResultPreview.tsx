@@ -3,11 +3,22 @@
 import type { AstrologyResult } from "@/lib/astrology";
 import { ASTROLOGY_PURCHASE_URL, ASTROLOGY_PURCHASE_PRICE_LABEL } from "@/lib/config";
 import { isInLineClient } from "@/lib/liffClient";
+import { withBasePath } from "@/lib/basePath";
 
 const ACCENT = "#3730a3";
 const GOLD = "#c9a227";
 
-export default function AstrologyFreeResultPreview({ result }: { result: AstrologyResult }) {
+type AstrologyFreeResultPreviewProps = {
+  result: AstrologyResult;
+  imageFailed: boolean;
+  onImageError: () => void;
+};
+
+export default function AstrologyFreeResultPreview({
+  result,
+  imageFailed,
+  onImageError,
+}: AstrologyFreeResultPreviewProps) {
   const { sun, moon, sunText } = result;
 
   // 守護女神占いの購入導線と同じ理由(LINE内ブラウザのCookie問題)で
@@ -35,7 +46,17 @@ export default function AstrologyFreeResultPreview({ result }: { result: Astrolo
           }}
         >
           <p className="text-white/80 text-sm mb-1">あなたの太陽星座は…</p>
-          <p className="text-5xl mb-2">{sun.emoji}</p>
+          {imageFailed ? (
+            <p className="text-5xl mb-2">{sun.emoji}</p>
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={withBasePath(sun.image)}
+              alt={sun.name}
+              onError={onImageError}
+              className="w-56 h-[336px] object-cover object-top rounded-xl mx-auto mb-3 shadow-lg ring-2 ring-white/30"
+            />
+          )}
           <h2 className="text-2xl font-bold text-white mb-1">{sun.name}</h2>
           <p className="text-white/60 text-xs mb-3">{sun.dateRange}生まれ</p>
           <div

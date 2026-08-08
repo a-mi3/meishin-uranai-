@@ -1,29 +1,70 @@
 "use client";
 
+import { useState } from "react";
 import type { AstrologyResult } from "@/lib/astrology";
+import { withBasePath } from "@/lib/basePath";
 
 const ACCENT = "#3730a3";
 const GOLD = "#c9a227";
+
+function SignImage({
+  src,
+  alt,
+  emoji,
+  className,
+}: {
+  src: string;
+  alt: string;
+  emoji: string;
+  className: string;
+}) {
+  const [failed, setFailed] = useState(false);
+  if (failed) {
+    return (
+      <div className={`${className} flex items-center justify-center bg-black/10 text-3xl`}>
+        {emoji}
+      </div>
+    );
+  }
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={withBasePath(src)}
+      alt={alt}
+      onError={() => setFailed(true)}
+      className={className}
+    />
+  );
+}
 
 function SignBadge({
   label,
   emoji,
   name,
+  image,
 }: {
   label: string;
   emoji: string;
   name: string;
+  image: string;
 }) {
   return (
     <div
-      className="rounded-xl px-4 py-3 text-center flex-1"
+      className="rounded-xl overflow-hidden text-center flex-1"
       style={{ backgroundColor: "rgba(255,255,255,0.08)", border: `1px solid ${GOLD}55` }}
     >
-      <p className="text-[11px] mb-1" style={{ color: GOLD }}>
-        {label}
-      </p>
-      <p className="text-2xl mb-0.5">{emoji}</p>
-      <p className="text-sm font-bold text-white">{name}</p>
+      <SignImage
+        src={image}
+        alt={name}
+        emoji={emoji}
+        className="w-full aspect-square object-cover object-top"
+      />
+      <div className="px-2 py-2">
+        <p className="text-[11px] mb-0.5" style={{ color: GOLD }}>
+          {label}
+        </p>
+        <p className="text-sm font-bold text-white">{name}</p>
+      </div>
     </div>
   );
 }
@@ -32,23 +73,28 @@ function SignSection({
   eyebrow,
   emoji,
   name,
+  image,
   title,
   body,
 }: {
   eyebrow: string;
   emoji: string;
   name: string;
+  image: string;
   title: string;
   body: string;
 }) {
   return (
     <div>
-      <div className="flex items-center gap-2 mb-2">
-        <span className="text-2xl">{emoji}</span>
-        <div>
-          <p className="text-[11px] text-gray-400">{eyebrow}</p>
-          <p className="text-base font-bold text-gray-800">{name}</p>
-        </div>
+      <SignImage
+        src={image}
+        alt={name}
+        emoji={emoji}
+        className="w-40 aspect-[2/3] object-cover object-top rounded-xl mx-auto mb-3 shadow"
+      />
+      <div className="text-center mb-3">
+        <p className="text-[11px] text-gray-400">{eyebrow}</p>
+        <p className="text-base font-bold text-gray-800">{name}</p>
       </div>
       <h4 className="text-sm font-bold mb-1.5" style={{ color: ACCENT }}>
         {title}
@@ -75,10 +121,15 @@ export default function AstrologyResultCard({ result }: { result: AstrologyResul
         </p>
         <h2 className="text-xl font-bold text-white mb-6">本格占星術鑑定書</h2>
         <div className="flex gap-2">
-          <SignBadge label="太陽星座" emoji={sun.emoji} name={sun.name} />
-          <SignBadge label="月星座" emoji={moon.emoji} name={moon.name} />
+          <SignBadge label="太陽星座" emoji={sun.emoji} name={sun.name} image={sun.image} />
+          <SignBadge label="月星座" emoji={moon.emoji} name={moon.name} image={moon.image} />
           {rising ? (
-            <SignBadge label="上昇星座" emoji={rising.emoji} name={rising.name} />
+            <SignBadge
+              label="上昇星座"
+              emoji={rising.emoji}
+              name={rising.name}
+              image={rising.image}
+            />
           ) : (
             <div
               className="rounded-xl px-4 py-3 text-center flex-1"
@@ -104,6 +155,7 @@ export default function AstrologyResultCard({ result }: { result: AstrologyResul
           eyebrow="性格の核・生きる原動力"
           emoji={sun.emoji}
           name={`太陽星座：${sun.name}`}
+          image={sun.image}
           title={sunText.title}
           body={sunText.body}
         />
@@ -115,6 +167,7 @@ export default function AstrologyResultCard({ result }: { result: AstrologyResul
           eyebrow="感情の動き方・心が安らぐ場所"
           emoji={moon.emoji}
           name={`月星座：${moon.name}`}
+          image={moon.image}
           title={moonText.title}
           body={moonText.body}
         />
@@ -127,6 +180,7 @@ export default function AstrologyResultCard({ result }: { result: AstrologyResul
             eyebrow="第一印象・外に見える顔"
             emoji={rising.emoji}
             name={`上昇星座：${rising.name}`}
+            image={rising.image}
             title={risingText.title}
             body={risingText.body}
           />

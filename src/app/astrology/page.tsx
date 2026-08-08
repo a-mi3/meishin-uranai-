@@ -36,6 +36,7 @@ export default function AstrologyPage() {
   const [prefectureIndex, setPrefectureIndex] = useState(String(DEFAULT_PREFECTURE_INDEX));
   const [formError, setFormError] = useState("");
   const [shared, setShared] = useState(false);
+  const [imageFailed, setImageFailed] = useState(false);
 
   const dayOptions = useMemo(() => {
     const year = Number(birthYear) || CURRENT_YEAR;
@@ -77,6 +78,7 @@ export default function AstrologyPage() {
 
     const built = buildAstrologyResult(chart.sunIndex, chart.moonIndex, chart.risingIndex);
     setResult(built);
+    setImageFailed(false);
     saveLastResult({
       kind: "astrology",
       sunIndex: chart.sunIndex,
@@ -96,6 +98,7 @@ export default function AstrologyPage() {
     setBirthMinute("");
     setResult(null);
     setShared(false);
+    setImageFailed(false);
   };
 
   const shareResult = async () => {
@@ -253,7 +256,11 @@ export default function AstrologyPage() {
 
         {stage === "result" && result && (
           <div>
-            <AstrologyFreeResultPreview result={result} />
+            <AstrologyFreeResultPreview
+              result={result}
+              imageFailed={imageFailed}
+              onImageError={() => setImageFailed(true)}
+            />
 
             <div className="mt-8 space-y-3 text-center">
               <button

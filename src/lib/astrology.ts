@@ -7,22 +7,23 @@ export type ZodiacSign = {
   emoji: string;
   element: Element;
   dateRange: string;
+  image: string;
 };
 
 // index 0 = 牡羊座(Aries) ... 11 = 魚座(Pisces), matching ecliptic longitude / 30
 export const ZODIAC_SIGNS: ZodiacSign[] = [
-  { name: "牡羊座", emoji: "♈", element: "fire", dateRange: "3/21〜4/19" },
-  { name: "牡牛座", emoji: "♉", element: "earth", dateRange: "4/20〜5/20" },
-  { name: "双子座", emoji: "♊", element: "air", dateRange: "5/21〜6/21" },
-  { name: "蟹座", emoji: "♋", element: "water", dateRange: "6/22〜7/22" },
-  { name: "獅子座", emoji: "♌", element: "fire", dateRange: "7/23〜8/22" },
-  { name: "乙女座", emoji: "♍", element: "earth", dateRange: "8/23〜9/22" },
-  { name: "天秤座", emoji: "♎", element: "air", dateRange: "9/23〜10/23" },
-  { name: "蠍座", emoji: "♏", element: "water", dateRange: "10/24〜11/22" },
-  { name: "射手座", emoji: "♐", element: "fire", dateRange: "11/23〜12/21" },
-  { name: "山羊座", emoji: "♑", element: "earth", dateRange: "12/22〜1/19" },
-  { name: "水瓶座", emoji: "♒", element: "air", dateRange: "1/20〜2/18" },
-  { name: "魚座", emoji: "♓", element: "water", dateRange: "2/19〜3/20" },
+  { name: "牡羊座", emoji: "♈", element: "fire", dateRange: "3/21〜4/19", image: "/zodiac/aries.png" },
+  { name: "牡牛座", emoji: "♉", element: "earth", dateRange: "4/20〜5/20", image: "/zodiac/taurus.png" },
+  { name: "双子座", emoji: "♊", element: "air", dateRange: "5/21〜6/21", image: "/zodiac/gemini.png" },
+  { name: "蟹座", emoji: "♋", element: "water", dateRange: "6/22〜7/22", image: "/zodiac/cancer.png" },
+  { name: "獅子座", emoji: "♌", element: "fire", dateRange: "7/23〜8/22", image: "/zodiac/leo.png" },
+  { name: "乙女座", emoji: "♍", element: "earth", dateRange: "8/23〜9/22", image: "/zodiac/virgo.png" },
+  { name: "天秤座", emoji: "♎", element: "air", dateRange: "9/23〜10/23", image: "/zodiac/libra.png" },
+  { name: "蠍座", emoji: "♏", element: "water", dateRange: "10/24〜11/22", image: "/zodiac/scorpio.png" },
+  { name: "射手座", emoji: "♐", element: "fire", dateRange: "11/23〜12/21", image: "/zodiac/sagittarius.png" },
+  { name: "山羊座", emoji: "♑", element: "earth", dateRange: "12/22〜1/19", image: "/zodiac/capricorn.png" },
+  { name: "水瓶座", emoji: "♒", element: "air", dateRange: "1/20〜2/18", image: "/zodiac/aquarius.png" },
+  { name: "魚座", emoji: "♓", element: "water", dateRange: "2/19〜3/20", image: "/zodiac/pisces.png" },
 ];
 
 export type Prefecture = { name: string; lat: number; lon: number };
