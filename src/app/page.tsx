@@ -141,6 +141,15 @@ export default function Home() {
           "linear-gradient(160deg, #1e1033 0%, #3b1d63 45%, #4c1d95 100%)",
       }}
     >
+      <div className="w-full py-2 px-4 text-center" style={{ backgroundColor: "rgba(0,0,0,0.15)" }}>
+        <a
+          href="https://uranai.see-en.net/hub/"
+          target="_top"
+          className="text-xs text-white/80 hover:text-white transition"
+        >
+          ← 占い一覧に戻る
+        </a>
+      </div>
       <div className="max-w-xl mx-auto px-4 py-10">
         <header className="text-center mb-8">
           <p className="text-purple-200 text-xs tracking-widest mb-2">
@@ -287,11 +296,28 @@ export default function Home() {
               >
                 もう一度占う
               </button>
+              <a
+                href="https://uranai.see-en.net/hub/"
+                target="_blank"
+                rel="noopener"
+                className="block w-full py-3 rounded-full border-2 font-medium text-sm hover:bg-gray-50 transition border-gray-300 text-gray-500"
+              >
+                🔮 ほかの占いを見る
+              </a>
             </div>
           </div>
         )}
 
-        <footer className="text-center mt-12 text-xs text-purple-200/70">
+        <div className="mt-10 text-center">
+          <a
+            href={withBasePath("/astrology/")}
+            className="inline-block text-xs underline text-purple-200 hover:text-white transition"
+          >
+            ✨ 本格占星術鑑定書（太陽×月×上昇星座）もあります
+          </a>
+        </div>
+
+        <footer className="text-center mt-6 text-xs text-purple-200/70">
           <p>守護女神占い — エンタメを目的とした簡易占いです。結果は参考程度にお楽しみください</p>
         </footer>
       </div>

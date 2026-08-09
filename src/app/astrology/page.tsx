@@ -125,6 +125,15 @@ export default function AstrologyPage() {
         background: "linear-gradient(160deg, #0f172a 0%, #1e3a8a 45%, #3730a3 100%)",
       }}
     >
+      <div className="w-full py-2 px-4 text-center" style={{ backgroundColor: "rgba(0,0,0,0.15)" }}>
+        <a
+          href="https://uranai.see-en.net/hub/"
+          target="_top"
+          className="text-xs text-white/80 hover:text-white transition"
+        >
+          ← 占い一覧に戻る
+        </a>
+      </div>
       <div className="max-w-xl mx-auto px-4 py-10">
         <header className="text-center mb-8">
           <p className="text-indigo-200 text-xs tracking-widest mb-2">
@@ -276,6 +285,13 @@ export default function AstrologyPage() {
               >
                 もう一度占う
               </button>
+              <a
+                href="https://uranai.see-en.net/hub/"
+                target="_top"
+                className="block w-full py-3 rounded-full border-2 font-medium text-sm hover:bg-gray-50 transition border-gray-300 text-gray-500"
+              >
+                🔮 ほかの占いを見る
+              </a>
             </div>
           </div>
         )}
