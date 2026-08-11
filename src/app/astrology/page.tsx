@@ -10,6 +10,7 @@ import {
 import AstrologyFreeResultPreview from "@/components/AstrologyFreeResultPreview";
 import { saveLastResult } from "@/lib/lastResultStorage";
 import { initLiff, shareViaLine } from "@/lib/liffClient";
+import { withBasePath } from "@/lib/basePath";
 
 type Stage = "intro" | "result";
 
@@ -139,7 +140,13 @@ export default function AstrologyPage() {
           <p className="text-indigo-200 text-xs tracking-widest mb-2">
             太陽 × 月 × 上昇星座
           </p>
-          <h1 className="text-2xl font-bold text-white mb-3">本格占星術鑑定書</h1>
+          <h1 className="sr-only">本格占星術鑑定書</h1>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={withBasePath("/title-banner-astrology.png")}
+            alt="本格占星術鑑定書"
+            className="w-full h-auto rounded-2xl shadow-lg mb-3"
+          />
           <p className="text-indigo-200 text-sm">
             生年月日・出生時刻・出生地から、太陽星座(性格の核)・月星座(感情の動き方)・上昇星座(第一印象)まで読み解く本格派の占星術鑑定
           </p>
