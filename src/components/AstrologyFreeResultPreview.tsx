@@ -45,7 +45,7 @@ export default function AstrologyFreeResultPreview({
             background: "linear-gradient(135deg, #1e3a8add, #3730a3dd)",
           }}
         >
-          <p className="text-white/80 text-sm mb-1">あなたの太陽星座は…</p>
+          <p className="text-white/80 text-sm mb-1">あなたの「素顔」（太陽星座）は…</p>
           {imageFailed ? (
             <p className="text-5xl mb-2">{sun.emoji}</p>
           ) : (
@@ -82,7 +82,7 @@ export default function AstrologyFreeResultPreview({
           本格占星術鑑定書を見る
         </h3>
         <p className="text-sm text-gray-600 leading-relaxed mb-5">
-          太陽星座だけでなく、感情の動き方をあらわす「月星座」、第一印象をあらわす「上昇星座」まで算出。恋愛・仕事での表れ方や人間関係のクセ、3天体が互いにどう影響し合っているかを読み解く「シナジー診断」まで含めた、あなただけの本格鑑定書が続きます。
+          初対面で見せる「表の顔」（上昇星座）、本来の自分らしさをあらわす「素顔」（太陽星座）、誰にも見せない本音「裏の顔」（月星座）——3つの層を算出。恋愛・仕事での表れ方や人間関係のクセ、そして表の顔と裏の顔のギャップまで数値化して読み解く「シナジー診断」を含めた、あなただけの本格鑑定書が続きます。
         </p>
         <a
           href={ASTROLOGY_PURCHASE_URL}

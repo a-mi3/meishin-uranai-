@@ -128,11 +128,11 @@ export default function AstrologyPage() {
       <div className="max-w-xl mx-auto px-4 py-10">
         <header className="text-center mb-8">
           <p className="text-indigo-200 text-xs tracking-widest mb-2">
-            太陽 × 月 × 上昇星座
+            表の顔 × 素顔 × 裏の顔
           </p>
           <h1 className="text-2xl font-bold text-white mb-3">本格占星術鑑定書</h1>
           <p className="text-indigo-200 text-sm">
-            生年月日・出生時刻・出生地から、太陽星座(性格の核)・月星座(感情の動き方)・上昇星座(第一印象)まで読み解く本格派の占星術鑑定
+            生年月日・出生時刻・出生地から、初対面で見せる「表の顔」(上昇星座)・本来の自分らしさ「素顔」(太陽星座)・誰にも見せない本音「裏の顔」(月星座)まで読み解く本格派の占星術鑑定
           </p>
         </header>
 

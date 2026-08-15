@@ -430,9 +430,47 @@ function describeElementPair(a: Element, b: Element): string {
   return ELEMENT_PAIR_TEXT[key];
 }
 
+// 「表の顔(上昇)」と「裏の顔(月)」のギャップの大きさ。要素の相性が近いほどギャップは小さい。
+export type GapLevel = "small" | "medium" | "large";
+
+const ELEMENT_PAIR_GAP: Record<string, GapLevel> = {
+  "fire-fire": "small",
+  "earth-earth": "small",
+  "air-air": "small",
+  "water-water": "small",
+  "air-fire": "small",
+  "earth-water": "small",
+  "earth-fire": "medium",
+  "air-water": "medium",
+  "fire-water": "large",
+  "air-earth": "large",
+};
+
+const GAP_LEVEL_LABEL: Record<GapLevel, string> = {
+  small: "小さめ",
+  medium: "中くらい",
+  large: "大きめ",
+};
+
+const GAP_LEVEL_TEXT: Record<GapLevel, string> = {
+  small:
+    "人前で見せる「表の顔」と、心の奥にある「裏の顔」の差はあまり大きくありません。周りから見えているあなたと、本当のあなたはそう遠くなく、比較的裏表の少ないタイプと言えます。",
+  medium:
+    "人前で見せる「表の顔」と、心の奥にある「裏の顔」には、ほどよい距離があります。出会ってすぐには分からなくても、関わりが深まるにつれて「思っていたのと少し違う」一面が見えてくるでしょう。",
+  large:
+    "人前で見せる「表の顔」と、心の奥にある「裏の顔」の間には、はっきりとしたギャップがあります。周囲からのイメージと本音は大きく異なり、心を許した相手にしか見せない一面を持っているタイプです。",
+};
+
+function describeGap(risingElement: Element, moonElement: Element): { level: GapLevel; text: string } {
+  const key = [risingElement, moonElement].sort().join("-");
+  const level = ELEMENT_PAIR_GAP[key];
+  return { level, text: GAP_LEVEL_TEXT[level] };
+}
+
 export type AstrologySynergy = {
   sunMoon: string;
   sunRising: string | null;
+  gap: { level: GapLevel; levelLabel: string; text: string } | null;
 };
 
 export type AstrologyResult = {
@@ -457,9 +495,12 @@ export function buildAstrologyResult(
   const moon = ZODIAC_SIGNS[moonIndex];
   const rising = risingIndex !== null ? ZODIAC_SIGNS[risingIndex] : null;
 
-  const sunMoon = `太陽(${ELEMENT_LABEL[sun.element]})と月(${ELEMENT_LABEL[moon.element]})は、${describeElementPair(sun.element, moon.element)}「本音の性格(太陽)」と「感情の動き方(月)」の間に、この関係性が働いています。`;
+  const sunMoon = `素顔(太陽・${ELEMENT_LABEL[sun.element]})と裏の顔(月・${ELEMENT_LABEL[moon.element]})は、${describeElementPair(sun.element, moon.element)}自分でも気づいている「意識的な性格(素顔)」と、無意識に出てしまう「本音(裏の顔)」の間に、この関係性が働いています。`;
   const sunRising = rising
-    ? `太陽(${ELEMENT_LABEL[sun.element]})と上昇(${ELEMENT_LABEL[rising.element]})は、${describeElementPair(sun.element, rising.element)}「内面の本質(太陽)」と「外から見える顔(上昇)」の間に、この関係性が働いています。`
+    ? `表の顔(上昇・${ELEMENT_LABEL[rising.element]})と素顔(太陽・${ELEMENT_LABEL[sun.element]})は、${describeElementPair(rising.element, sun.element)}「初対面で見せる顔(表の顔)」と「本来の自分らしさ(素顔)」の間に、この関係性が働いています。`
+    : null;
+  const gap = rising
+    ? { ...describeGap(rising.element, moon.element), levelLabel: GAP_LEVEL_LABEL[describeGap(rising.element, moon.element).level] }
     : null;
 
   return {
@@ -472,6 +513,6 @@ export function buildAstrologyResult(
     sunText: SUN_TEXTS[sunIndex],
     moonText: MOON_TEXTS[moonIndex],
     risingText: risingIndex !== null ? RISING_TEXTS[risingIndex] : null,
-    synergy: { sunMoon, sunRising },
+    synergy: { sunMoon, sunRising, gap },
   };
 }
