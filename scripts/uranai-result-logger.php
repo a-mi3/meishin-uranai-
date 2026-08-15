@@ -134,24 +134,57 @@ add_action('woocommerce_checkout_create_order_line_item', function ($item, $cart
     }
 }, 10, 4);
 
-add_action('woocommerce_checkout_update_order_meta', function ($order_id) {
-    if (!WC()->cart) {
+// woocommerce_checkout_update_order_meta は旧来のショートコード式チェックアウト
+// でのみ発火し、このサイトのようにBlocks/Store API方式のチェックアウト(「支払い」
+// ページがReact製)では呼ばれないことが判明したため使用しない。
+// woocommerce_checkout_order_created は注文オブジェクトが生成された直後(まだ
+// 明細行が追加される前)に発火するため、この時点では $order->get_items() が
+// 空でコピーできないことが判明した。
+// woocommerce_checkout_order_processed も試したが、実際に診断購入(テスト注文105)
+// で検証したところ発火していない(明細行メタは正しく付くが注文レベルは空のまま)。
+// これはこのサイトのチェックアウトがWooCommerce Blocks(Store API)経由であり、
+// クラシックのチェックアウトフックが一切発火しないため。Store APIには専用の
+// woocommerce_store_api_checkout_order_processed が用意されているので、
+// 両方登録しておく(クラシック導線が復活しても壊れないように)。
+function uranai_copy_session_id_to_order($order) {
+    if (!$order || $order->get_meta('_uranai_session_id')) {
         return;
     }
-    foreach (WC()->cart->get_cart() as $item) {
-        if (!empty($item['uranai_session_id'])) {
-            $order = wc_get_order($order_id);
-            if ($order) {
-                $order->update_meta_data('_uranai_session_id', sanitize_text_field($item['uranai_session_id']));
-                $order->save();
-            }
+    foreach ($order->get_items() as $item) {
+        $sid = $item->get_meta('_uranai_session_id');
+        if ($sid) {
+            $order->update_meta_data('_uranai_session_id', $sid);
+            $order->save();
             break;
         }
     }
+}
+
+add_action('woocommerce_checkout_order_processed', function ($order_id) {
+    uranai_copy_session_id_to_order(wc_get_order($order_id));
 });
 
-add_action('woocommerce_admin_order_data_after_order_details', function ($order) {
+add_action('woocommerce_store_api_checkout_order_processed', function ($order) {
+    uranai_copy_session_id_to_order($order);
+});
+
+function uranai_get_order_session_id($order) {
     $sid = $order->get_meta('_uranai_session_id');
+    if ($sid) {
+        return $sid;
+    }
+    // 古い注文など、注文レベルのメタが無い場合は明細行メタにフォールバック。
+    foreach ($order->get_items() as $item) {
+        $item_sid = $item->get_meta('_uranai_session_id');
+        if ($item_sid) {
+            return $item_sid;
+        }
+    }
+    return '';
+}
+
+add_action('woocommerce_admin_order_data_after_order_details', function ($order) {
+    $sid = uranai_get_order_session_id($order);
     if ($sid) {
         echo '<p><strong>診断セッションID:</strong> <code>' . esc_html($sid) . '</code><br><span style="color:#777;font-size:12px;">「占い結果ログ」管理画面でこのIDを検索すると、購入者が見た診断結果を確認できます。</span></p>';
     }
