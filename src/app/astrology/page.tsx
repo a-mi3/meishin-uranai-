@@ -10,6 +10,8 @@ import {
 import AstrologyFreeResultPreview from "@/components/AstrologyFreeResultPreview";
 import { saveLastResult } from "@/lib/lastResultStorage";
 import { initLiff, shareViaLine } from "@/lib/liffClient";
+import { withBasePath } from "@/lib/basePath";
+import { logResult } from "@/lib/resultLogger";
 
 type Stage = "intro" | "result";
 
@@ -85,6 +87,12 @@ export default function AstrologyPage() {
       moonIndex: chart.moonIndex,
       risingIndex: chart.risingIndex,
     });
+    logResult(
+      "astrology",
+      "free",
+      `太陽:${built.sun.name} 月:${built.moon.name} 上昇:${built.rising?.name ?? "不明"}`,
+      { sunIndex: chart.sunIndex, moonIndex: chart.moonIndex, risingIndex: chart.risingIndex }
+    );
     setStage("result");
   };
 
@@ -125,12 +133,27 @@ export default function AstrologyPage() {
         background: "linear-gradient(160deg, #0f172a 0%, #1e3a8a 45%, #3730a3 100%)",
       }}
     >
+      <div className="w-full py-2 px-4 text-center" style={{ backgroundColor: "rgba(0,0,0,0.15)" }}>
+        <a
+          href="https://uranai.see-en.net/hub/"
+          target="_top"
+          className="text-xs text-white/80 hover:text-white transition"
+        >
+          ← 占い一覧に戻る
+        </a>
+      </div>
       <div className="max-w-xl mx-auto px-4 py-10">
         <header className="text-center mb-8">
           <p className="text-indigo-200 text-xs tracking-widest mb-2">
             表の顔 × 素顔 × 裏の顔
           </p>
-          <h1 className="text-2xl font-bold text-white mb-3">本格占星術鑑定書</h1>
+          <h1 className="sr-only">本格占星術鑑定書</h1>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={withBasePath("/title-banner-astrology.png")}
+            alt="本格占星術鑑定書"
+            className="w-full h-auto rounded-2xl shadow-lg mb-3"
+          />
           <p className="text-indigo-200 text-sm">
             生年月日・出生時刻・出生地から、初対面で見せる「表の顔」(上昇星座)・本来の自分らしさ「素顔」(太陽星座)・誰にも見せない本音「裏の顔」(月星座)まで読み解く本格派の占星術鑑定
           </p>
@@ -276,6 +299,13 @@ export default function AstrologyPage() {
               >
                 もう一度占う
               </button>
+              <a
+                href="https://uranai.see-en.net/hub/"
+                target="_top"
+                className="block w-full py-3 rounded-full border-2 font-medium text-sm hover:bg-gray-50 transition border-gray-300 text-gray-500"
+              >
+                🔮 ほかの占いを見る
+              </a>
             </div>
           </div>
         )}
