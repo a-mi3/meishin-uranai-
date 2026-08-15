@@ -11,6 +11,7 @@ import AstrologyFreeResultPreview from "@/components/AstrologyFreeResultPreview"
 import { saveLastResult } from "@/lib/lastResultStorage";
 import { initLiff, shareViaLine } from "@/lib/liffClient";
 import { withBasePath } from "@/lib/basePath";
+import { logResult } from "@/lib/resultLogger";
 
 type Stage = "intro" | "result";
 
@@ -86,6 +87,12 @@ export default function AstrologyPage() {
       moonIndex: chart.moonIndex,
       risingIndex: chart.risingIndex,
     });
+    logResult(
+      "astrology",
+      "free",
+      `太陽:${built.sun.name} 月:${built.moon.name} 上昇:${built.rising?.name ?? "不明"}`,
+      { sunIndex: chart.sunIndex, moonIndex: chart.moonIndex, risingIndex: chart.risingIndex }
+    );
     setStage("result");
   };
 

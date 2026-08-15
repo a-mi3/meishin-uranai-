@@ -13,6 +13,7 @@ import FreeResultPreview from "@/components/FreeResultPreview";
 import { saveLastResult } from "@/lib/lastResultStorage";
 import { withBasePath } from "@/lib/basePath";
 import { initLiff, shareViaLine } from "@/lib/liffClient";
+import { logResult } from "@/lib/resultLogger";
 
 type Stage = "intro" | "quiz" | "result";
 
@@ -112,6 +113,14 @@ export default function Home() {
     if (!birthDate || !personalityType) return;
     const { godIndex, phaseIndex } = getGodAndPhase(birthDate);
     saveLastResult({ kind: "meishin", godIndex, phaseIndex, mode: personalityType });
+    if (result) {
+      logResult("meishin", "free", `${result.title}(${typeInfo?.label ?? personalityType})`, {
+        godIndex,
+        phaseIndex,
+        mode: personalityType,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [birthDate, personalityType]);
 
   const shareResult = async () => {

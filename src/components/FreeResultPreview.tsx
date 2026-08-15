@@ -4,6 +4,7 @@ import type { FortuneResult } from "@/lib/fortune";
 import { PURCHASE_URL, PURCHASE_PRICE_LABEL } from "@/lib/config";
 import { withBasePath } from "@/lib/basePath";
 import { isInLineClient } from "@/lib/liffClient";
+import { withSessionId } from "@/lib/resultLogger";
 
 type TypeInfo = { emoji: string; label: string };
 
@@ -33,15 +34,17 @@ export default function FreeResultPreview({
   // effect) opened a race: if the user tapped the purchase button before
   // that check finished, the link's default in-app-browser navigation
   // fired instead, reintroducing the cookie problem this fix exists for.
+  const purchaseUrl = withSessionId(PURCHASE_URL);
+
   const handlePurchaseClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     isInLineClient().then((inLine) => {
       if (inLine) {
         import("@line/liff").then(({ default: liff }) => {
-          liff.openWindow({ url: PURCHASE_URL, external: true });
+          liff.openWindow({ url: purchaseUrl, external: true });
         });
       } else {
-        window.top!.location.href = PURCHASE_URL;
+        window.top!.location.href = purchaseUrl;
       }
     });
   };
@@ -90,7 +93,7 @@ export default function FreeResultPreview({
           強み・注意点・恋愛傾向・仕事スタイル・相性・ラッキーアイテム、そしてあなただけの詳しいアドバイスが続きます。
         </p>
         <a
-          href={PURCHASE_URL}
+          href={purchaseUrl}
           target="_top"
           onClick={handlePurchaseClick}
           className="inline-block w-full py-3.5 rounded-full text-white font-bold hover:opacity-90 transition shadow-lg"

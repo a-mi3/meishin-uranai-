@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { getLastResult } from "@/lib/lastResultStorage";
 import { withBasePath } from "@/lib/basePath";
+import { logResult } from "@/lib/resultLogger";
 
 export default function UnlockPage() {
   const [notFound, setNotFound] = useState(false);
@@ -16,12 +17,22 @@ export default function UnlockPage() {
     if (last.kind === "astrology") {
       const { sunIndex, moonIndex, risingIndex } = last;
       const risingSegment = risingIndex === null ? "unknown" : String(risingIndex);
+      logResult("astrology", "unlocked", `sun:${sunIndex} moon:${moonIndex} rising:${risingSegment}`, {
+        sunIndex,
+        moonIndex,
+        risingIndex,
+      });
       window.location.replace(
         withBasePath(`/print-astrology/${sunIndex}/${moonIndex}/${risingSegment}/`)
       );
       return;
     }
     const { godIndex, phaseIndex, mode } = last;
+    logResult("meishin", "unlocked", `god:${godIndex} phase:${phaseIndex} mode:${mode}`, {
+      godIndex,
+      phaseIndex,
+      mode,
+    });
     window.location.replace(
       withBasePath(`/print/${godIndex}/${phaseIndex}/${mode}/`)
     );
